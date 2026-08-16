@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXOTIC LINOX</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#08090d;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,9,13,.94);
+    border-bottom:1px solid #242630;
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#00ff91;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#00ff91;
+}
+
+.hero{
+    padding:80px 6% 55px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 14px;
+    border:1px solid #00ff91;
+    border-radius:30px;
+    color:#00ff91;
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(40px,8vw,78px);
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#00ff91;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#9295a0;
+    line-height:1.7;
+}
+
+.search{
+    margin:35px auto;
+    max-width:650px;
+}
+
+.search input{
+    width:100%;
+    padding:17px 20px;
+    border-radius:14px;
+    border:1px solid #292c35;
+    background:#12141a;
+    color:white;
+    outline:none;
+}
+
+.container{
+    width:88%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section{
+    padding:40px 0;
+}
+
+.section-title{
+    margin-bottom:22px;
+}
+
+.section-title h2{
+    font-size:28px;
+}
+
+.section-title p{
+    color:#777b87;
+    margin-top:7px;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.category{
+    padding:10px 16px;
+    border:1px solid #292c35;
+    background:#111319;
+    color:#aaa;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.category.active,
+.category:hover{
+    border-color:#00ff91;
+    color:#00ff91;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:#111319;
+    border:1px solid #252832;
+    border-radius:17px;
+    padding:20px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#00ff91;
+}
+
+.phone{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.brand{
+    color:#00ff91;
+    font-size:12px;
+    text-transform:uppercase;
+}
+
+.info{
+    margin:15px 0;
+    display:grid;
+    gap:8px;
+}
+
+.info div{
+    display:flex;
+    justify-content:space-between;
+    color:#9699a3;
+    font-size:13px;
+}
+
+.info strong{
+    color:white;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#00ff91;
+    color:#00150d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn:hover{
+    opacity:.85;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+}
+
+.feature{
+    background:#111319;
+    border:1px solid #252832;
+    border-radius:17px;
+    padding:25px;
+}
+
+.icon{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:9px;
+}
+
+.feature p{
+    color:#858894;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.premium{
+    margin:50px 0;
+    padding:35px;
+    border-radius:22px;
+    border:1px solid #00ff91;
+    background:linear-gradient(135deg,#111a17,#101216);
+}
+
+.premium h2{
+    color:#00ff91;
+    margin-bottom:10px;
+}
+
+.premium ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.premium li{
+    padding:8px 0;
+    color:#bbb;
+}
+
+footer{
+    margin-top:50px;
+    padding:30px 6%;
+    border-top:1px solid #252832;
+    text-align:center;
+    color:#666b77;
+    font-size:13px;
+}
+
+.empty{
+    display:none;
+    text-align:center;
+    color:#777;
+    padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EXOTIC <span>LINOX</span></div>
+
+    <nav>
+        <a href="#sensibilidad">Sensibilidad</a>
+        <a href="#optimizacion">Optimización</a>
+        <a href="#premium">Premium</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div class="badge">EXOTIC LINOX • GAMING HUB</div>
+
+    <h1>EXOTIC <span>LINOX</span></h1>
+
+    <p>
+        Encuentra configuraciones de sensibilidad, DPI,
+        controles y recomendaciones de optimización
+        organizadas según tu dispositivo.
+    </p>
+
+    <div class="search">
+        <input
+            id="search"
+            type="text"
+            placeholder="Buscar tu teléfono...">
+    </div>
+
+</section>
+
+
+<main class="container">
+
+<section class="section" id="sensibilidad">
+
+    <div class="section-title">
+        <h2>📱 Catálogo de dispositivos</h2>
+        <p>Selecciona una marca para explorar configuraciones.</p>
+    </div>
+
+    <div class="categories">
+
+        <button class="category active" onclick="filterBrand('Todos',this)">
+            Todos
+        </button>
+
+        <button class="category" onclick="filterBrand('POCO',this)">
+            POCO
+        </button>
+
+        <button class="category" onclick="filterBrand('Redmi',this)">
+            Redmi
+        </button>
+
+        <button class="category" onclick="filterBrand('Samsung',this)">
+            Samsung
+        </button>
+
+        <button class="category" onclick="filterBrand('Infinix',this)">
+            Infinix
+        </button>
+
+        <button class="category" onclick="filterBrand('Tecno',this)">
+            Tecno
+        </button>
+
+        <button class="category" onclick="filterBrand('iPhone',this)">
+            iPhone
+        </button>
+
+    </div>
+
+
+    <div class="grid" id="devices">
+
+        <div class="card" data-brand="POCO" data-name="POCO X6 Pro">
+            <div class="brand">POCO</div>
+            <div class="phone">POCO X6 Pro</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Alta</strong></div>
+                <div>DPI <strong>620</strong></div>
+                <div>Disparo <strong>43%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('POCO X6 Pro')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="POCO" data-name="POCO F6 Pro">
+            <div class="brand">POCO</div>
+            <div class="phone">POCO F6 Pro</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Alta</strong></div>
+                <div>DPI <strong>600</strong></div>
+                <div>Disparo <strong>45%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('POCO F6 Pro')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="Redmi" data-name="Redmi Note 13 Pro">
+            <div class="brand">Redmi</div>
+            <div class="phone">Redmi Note 13 Pro</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Media-Alta</strong></div>
+                <div>DPI <strong>560</strong></div>
+                <div>Disparo <strong>48%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('Redmi Note 13 Pro')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="Samsung" data-name="Samsung Galaxy A55">
+            <div class="brand">Samsung</div>
+            <div class="phone">Galaxy A55</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Media</strong></div>
+                <div>DPI <strong>521</strong></div>
+                <div>Disparo <strong>50%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('Samsung Galaxy A55')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="Infinix" data-name="Infinix GT 20 Pro">
+            <div class="brand">Infinix</div>
+            <div class="phone">GT 20 Pro</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Alta</strong></div>
+                <div>DPI <strong>580</strong></div>
+                <div>Disparo <strong>46%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('Infinix GT 20 Pro')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="Tecno" data-name="Tecno Pova 6 Pro">
+            <div class="brand">Tecno</div>
+            <div class="phone">POVA 6 Pro</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Alta</strong></div>
+                <div>DPI <strong>600</strong></div>
+                <div>Disparo <strong>44%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('Tecno POVA 6 Pro')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="iPhone" data-name="iPhone 15 Pro Max">
+            <div class="brand">Apple</div>
+            <div class="phone">iPhone 15 Pro Max</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Media-Alta</strong></div>
+                <div>DPI <strong>Estándar iOS</strong></div>
+                <div>Disparo <strong>45%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('iPhone 15 Pro Max')">
+                Ver configuración
+            </button>
+        </div>
+
+
+        <div class="card" data-brand="iPhone" data-name="iPhone 16 Pro Max">
+            <div class="brand">Apple</div>
+            <div class="phone">iPhone 16 Pro Max</div>
+
+            <div class="info">
+                <div>Sensibilidad <strong>Media-Alta</strong></div>
+                <div>DPI <strong>Estándar iOS</strong></div>
+                <div>Disparo <strong>45%</strong></div>
+            </div>
+
+            <button class="btn" onclick="showConfig('iPhone 16 Pro Max')">
+                Ver configuración
+            </button>
+        </div>
+
+    </div>
+
+    <div class="empty" id="empty">
+        No se encontró ese dispositivo.
+    </div>
+
+</section>
+
+
+<section class="section" id="optimizacion">
+
+    <div class="section-title">
+        <h2>⚙️ Herramientas</h2>
+        <p>Recursos y recomendaciones antes de jugar.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="icon">🎯</div>
+            <h3>Configuración de controles</h3>
+            <p>
+                Guías para configurar tamaño y posición
+                de los controles según tu estilo de juego.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">📱</div>
+            <h3>Optimización del dispositivo</h3>
+            <p>
+                Recomendaciones generales para reducir
+                aplicaciones en segundo plano y mejorar
+                la estabilidad del teléfono.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">📚</div>
+            <h3>Antes de jugar</h3>
+            <p>
+                Revisa batería, almacenamiento, temperatura,
+                conexión y permisos antes de iniciar una partida.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">🗂️</div>
+            <h3>Archivos seguros</h3>
+            <p>
+                Espacio para guías, presets y documentos
+                de configuración que no modifican el cliente
+                del juego.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="premium" id="premium">
+
+    <h2>💎 EXOTIC LINOX PREMIUM</h2>
+
+    <p>
+        Accede a configuraciones y contenido adicional
+        dentro de la plataforma.
+    </p>
+
+    <ul>
+        <li>✓ Perfiles avanzados</li>
+        <li>✓ Más configuraciones por dispositivo</li>
+        <li>✓ Guías exclusivas</li>
+        <li>✓ Favoritos</li>
+        <li>✓ Nuevos dispositivos</li>
+    </ul>
+
+    <button class="btn" onclick="premiumMessage()">
+        Ver Premium
+    </button>
+
+</section>
+
+</main>
+
+
+<footer>
+    © 2026 EXOTIC LINOX — Gaming Configuration Hub
+</footer>
+
+
+<script>
+
+let currentBrand = "Todos";
+
+function filterBrand(brand, button){
+
+    currentBrand = brand;
+
+    document
+        .querySelectorAll(".category")
+        .forEach(b => b.classList.remove("active"));
+
+    button.classList.add("active");
+
+    applyFilters();
+}
+
+
+document
+.getElementById("search")
+.addEventListener("input", applyFilters);
+
+
+function applyFilters(){
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".card");
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const brand = card.dataset.brand;
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const brandOK =
+            currentBrand === "Todos" ||
+            brand === currentBrand;
+
+        const searchOK =
+            name.includes(search);
+
+        if(brandOK && searchOK){
+
+            card.style.display = "block";
+            visible++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("empty")
+        .style.display =
+        visible === 0 ? "block" : "none";
+}
+
+
+function showConfig(phone){
+
+    alert(
+        "EXOTIC LINOX\n\n" +
+        "Configuración seleccionada:\n" +
+        phone +
+        "\n\n" +
+        "Aquí podrás colocar posteriormente " +
+        "la configuración específica del dispositivo."
+    );
+
+}
+
+
+function premiumMessage(){
+
+    alert(
+        "💎 EXOTIC LINOX PREMIUM\n\n" +
+        "Área Premium preparada.\n\n" +
+        "Puedes conectar posteriormente " +
+        "un sistema de usuarios y pagos."
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
