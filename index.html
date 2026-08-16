@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>EXOTIC LINOX V3</title>
+<title>EXOTIC LINOX V4</title>
 
 <style>
 *{box-sizing:border-box}
@@ -85,8 +85,7 @@ border:1px solid #303a40
 
 .generate{
 font-size:18px;
-padding:17px;
-margin-top:15px
+padding:17px
 }
 
 .grid{
@@ -170,8 +169,19 @@ color:#00f58a;
 display:none
 }
 
+.game-buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px
+}
+
 @media(max-width:600px){
 .grid{
+grid-template-columns:1fr
+}
+
+.game-buttons{
 grid-template-columns:1fr
 }
 }
@@ -183,7 +193,7 @@ grid-template-columns:1fr
 <header>
 
 <div class="logo">
-EXOTIC <span>LINOX</span> V3
+EXOTIC <span>LINOX</span> V4
 </div>
 
 <div class="small">
@@ -196,9 +206,7 @@ SENSI + AI
 <div class="container">
 
 
-<!-- =================================================
-BUSCADOR
-================================================= -->
+<!-- BUSCADOR -->
 
 <div class="card">
 
@@ -215,16 +223,12 @@ autocomplete="off"
 
 <p class="small">
 Busca por marca o modelo.
-Ejemplo: Redmi Note 11, Samsung A55, iPhone 13,
-POCO X6 Pro, Tecno Spark 20...
 </p>
 
 </div>
 
 
-<!-- =================================================
-SELECCIÓN DE SENSI
-================================================= -->
+<!-- SENSIBILIDAD -->
 
 <div class="card">
 
@@ -251,9 +255,7 @@ SENSI ALTA
 </div>
 
 
-<!-- =================================================
-BOTÓN GENERAR
-================================================= -->
+<!-- GENERADOR -->
 
 <div class="card">
 
@@ -266,19 +268,12 @@ onclick="generateSensi()"
 ⚡ GENERAR SENSI
 </button>
 
-<div
-id="sensiStatus"
-class="status"
->
-Selecciona un teléfono y una sensibilidad.
-</div>
+<div id="sensiStatus" class="status"></div>
 
 </div>
 
 
-<!-- =================================================
-RESULTADO
-================================================= -->
+<!-- RESULTADO -->
 
 <div
 class="card"
@@ -295,24 +290,17 @@ y pulsa GENERAR SENSI.
 </div>
 
 
-<!-- =================================================
-IA
-================================================= -->
+<!-- IA -->
 
 <div class="card">
 
 <h2>🤖 EXOTIC LINOX AI</h2>
 
-<div
-class="chat"
-id="chat"
->
+<div class="chat" id="chat">
 
 <div class="msg">
 
 🤖 Hola. Soy la IA local de EXOTIC LINOX.
-
-Puedo ayudarte a generar una configuración.
 
 Ejemplos:
 
@@ -322,12 +310,11 @@ sensi media Samsung A55
 
 sensi baja iPhone 13
 
-configuración POCO X6 Pro
+sensi alta POCO X6 Pro
 
 </div>
 
 </div>
-
 
 <input
 id="question"
@@ -352,8 +339,6 @@ CATÁLOGO
 ===================================================== */
 
 const phones=[
-
-/* SAMSUNG */
 
 "Samsung Galaxy A01",
 "Samsung Galaxy A02",
@@ -435,8 +420,6 @@ const phones=[
 "Samsung Galaxy Note 20",
 "Samsung Galaxy Note 20 Ultra",
 
-/* REDMI */
-
 "Redmi 7",
 "Redmi 8",
 "Redmi 9",
@@ -476,8 +459,6 @@ const phones=[
 "Redmi Note 14 Pro 5G",
 "Redmi Note 14 Pro+",
 
-/* POCO */
-
 "POCO M2",
 "POCO M3",
 "POCO M4",
@@ -508,8 +489,6 @@ const phones=[
 "POCO F7 Pro",
 "POCO F7 Ultra",
 
-/* XIAOMI */
-
 "Xiaomi Mi 9",
 "Xiaomi Mi 10",
 "Xiaomi Mi 10T",
@@ -532,8 +511,6 @@ const phones=[
 "Xiaomi 14",
 "Xiaomi 14 Ultra",
 "Xiaomi 15",
-
-/* IPHONE */
 
 "iPhone 8",
 "iPhone 8 Plus",
@@ -566,8 +543,6 @@ const phones=[
 "iPhone 16 Plus",
 "iPhone 16 Pro",
 "iPhone 16 Pro Max",
-
-/* MOTOROLA */
 
 "Motorola Moto G7",
 "Motorola Moto G8",
@@ -612,8 +587,6 @@ const phones=[
 "Motorola Razr 50 Ultra",
 "Motorola Razr 60",
 
-/* TECNO */
-
 "Tecno Spark 7",
 "Tecno Spark 8",
 "Tecno Spark 9",
@@ -650,8 +623,6 @@ const phones=[
 "Tecno Camon 40",
 "Tecno Camon 40 Pro",
 
-/* INFINIX */
-
 "Infinix Hot 10",
 "Infinix Hot 11",
 "Infinix Hot 12",
@@ -687,13 +658,13 @@ const phones=[
 
 
 /* =====================================================
-CREAR OPCIONES
+INICIALIZAR BUSCADOR
 ===================================================== */
 
 const datalist=
 document.getElementById("phones");
 
-phones.forEach(function(phone){
+phones.forEach(phone=>{
 
 const option=
 document.createElement("option");
@@ -710,12 +681,11 @@ VARIABLES
 ===================================================== */
 
 let selectedLevel=null;
-
 let currentConfig=null;
 
 
 /* =====================================================
-DETECTAR MARCA
+MARCA
 ===================================================== */
 
 function getBrand(phone){
@@ -726,7 +696,7 @@ if(p.includes("iphone"))
 return "iPhone";
 
 if(
-p.includes("samsung") ||
+p.includes("samsung")||
 p.includes("galaxy")
 )
 return "Samsung";
@@ -738,31 +708,31 @@ if(p.includes("poco"))
 return "POCO";
 
 if(
-p.includes("xiaomi") ||
+p.includes("xiaomi")||
 p.startsWith("mi ")
 )
 return "Xiaomi";
 
 if(
-p.includes("motorola") ||
-p.includes("moto ") ||
-p.includes("razr") ||
+p.includes("motorola")||
+p.includes("moto ")||
+p.includes("razr")||
 p.includes("edge")
 )
 return "Motorola";
 
 if(
-p.includes("tecno") ||
-p.includes("spark") ||
-p.includes("pova") ||
+p.includes("tecno")||
+p.includes("spark")||
+p.includes("pova")||
 p.includes("camon")
 )
 return "TECNO";
 
 if(
-p.includes("infinix") ||
-p.includes("hot ") ||
-p.includes("zero ") ||
+p.includes("infinix")||
+p.includes("hot ")||
+p.includes("zero ")||
 p.includes("gt ")
 )
 return "Infinix";
@@ -807,39 +777,33 @@ level.toUpperCase()+
 
 
 /* =====================================================
-GENERAR SENSI
+GENERAR
 ===================================================== */
 
 function generateSensi(){
 
 const phone=
-document
-.getElementById("phone")
+document.getElementById("phone")
 .value
 .trim();
-
 
 if(!phone){
 
 alert(
-"⚠️ Primero escribe o selecciona tu teléfono."
+"⚠️ Primero selecciona tu teléfono."
 );
 
 return;
-
 }
-
 
 if(!selectedLevel){
 
 alert(
-"⚠️ Primero selecciona SENSI BAJA, MEDIA o ALTA."
+"⚠️ Selecciona SENSI BAJA, MEDIA o ALTA."
 );
 
 return;
-
 }
-
 
 generate(selectedLevel);
 
@@ -847,21 +811,18 @@ generate(selectedLevel);
 
 
 /* =====================================================
-GENERADOR PRINCIPAL
+GENERADOR
 ===================================================== */
 
 function generate(level){
 
 const phone=
-document
-.getElementById("phone")
+document.getElementById("phone")
 .value
 .trim();
 
-
 const iphone=
 getBrand(phone)==="iPhone";
-
 
 let general;
 let red;
@@ -958,17 +919,17 @@ dpi=iphone
 
 
 currentConfig={
-phone:phone,
+phone,
 brand:getBrand(phone),
-level:level,
-general:general,
-red:red,
-x2:x2,
-x4:x4,
-sniper:sniper,
-camera:camera,
-button:button,
-dpi:dpi
+level,
+general,
+red,
+x2,
+x4,
+sniper,
+camera,
+button,
+dpi
 };
 
 
@@ -983,10 +944,10 @@ document.getElementById(
 status.style.display="block";
 
 status.innerHTML=
-"✅ Sensibilidad generada para "+
-phone+
-" — SENSI "+
-level.toUpperCase();
+"✅ Sensi "+
+level.toUpperCase()+
+" generada para "+
+phone+".";
 
 
 document
@@ -1004,75 +965,52 @@ MODIFICACIONES
 
 function getMods(phone,level){
 
-const brand=
-getBrand(phone);
+const brand=getBrand(phone);
 
 let mods=[];
 
-
 mods.push(
-"Cierra aplicaciones que no estés utilizando."
+"Cierra aplicaciones innecesarias antes de jugar."
 );
 
 mods.push(
-"Mantén suficiente espacio libre de almacenamiento."
+"Mantén suficiente espacio libre."
 );
 
 mods.push(
-"Evita jugar mientras el teléfono esté excesivamente caliente."
+"Evita jugar con el teléfono excesivamente caliente."
 );
 
 mods.push(
 "Mantén actualizado el sistema y el juego."
 );
 
-
 if(brand==="iPhone"){
 
 mods.push(
-"iPhone no utiliza el ajuste DPI de Android."
+"No uses DPI: iPhone no utiliza el ajuste DPI de Android."
 );
 
 mods.push(
-"Usa una tasa de refresco alta si tu modelo la soporta."
+"Utiliza la mayor tasa de refresco disponible si tu modelo la soporta."
 );
 
 }else{
 
-if(level==="baja"){
+if(level==="baja")
+mods.push("DPI recomendado: 390–410.");
 
-mods.push(
-"DPI recomendado: 390–410."
-);
+if(level==="media")
+mods.push("DPI recomendado: 360–420.");
 
-}
-
-if(level==="media"){
-
-mods.push(
-"DPI recomendado: 360–420."
-);
-
-}
-
-if(level==="alta"){
-
-mods.push(
-"DPI recomendado: 420–620."
-);
-
-}
+if(level==="alta")
+mods.push("DPI recomendado: 420–620.");
 
 mods.push(
 "Usa la mayor tasa de refresco disponible."
 );
 
-mods.push(
-"No cambies muchas configuraciones al mismo tiempo."
-);
-
 }
-
 
 return mods;
 
@@ -1080,7 +1018,7 @@ return mods;
 
 
 /* =====================================================
-MOSTRAR CONFIGURACIÓN
+MOSTRAR RESULTADO
 ===================================================== */
 
 function showConfiguration(){
@@ -1093,11 +1031,7 @@ c.phone,
 c.level
 );
 
-
-let html="";
-
-
-html+=`
+let html=`
 
 <span class="badge">
 SENSI ${c.level.toUpperCase()}
@@ -1162,13 +1096,32 @@ Marca: ${c.brand}
 </button>
 
 <h3>
+🎮 ENTRAR AL JUEGO
+</h3>
+
+<div class="game-buttons">
+
+<button onclick="copyAndOpen('normal')">
+🎮 COPIAR Y ABRIR FREE FIRE
+</button>
+
+<button
+onclick="copyAndOpen('max')"
+class="secondary"
+>
+🚀 COPIAR Y ABRIR FREE FIRE MAX
+</button>
+
+</div>
+
+<h3>
 🛠️ Modificaciones recomendadas
 </h3>
 
 `;
 
 
-mods.forEach(function(mod){
+mods.forEach(mod=>{
 
 html+=`
 
@@ -1184,8 +1137,9 @@ html+=`
 html+=`
 
 <p class="small">
-Estas configuraciones son recomendaciones
-orientativas y no modifican archivos del juego.
+La página copia la configuración al portapapeles.
+El juego no puede ser modificado automáticamente
+desde una página HTML.
 </p>
 
 `;
@@ -1202,17 +1156,11 @@ document
 COPIAR SENSI
 ===================================================== */
 
-function copySensi(){
-
-if(!currentConfig)
-return;
-
+function getSensiText(){
 
 const c=currentConfig;
 
-
-const text=
-`EXOTIC LINOX V3
+return `EXOTIC LINOX V4
 
 Teléfono: ${c.phone}
 Marca: ${c.brand}
@@ -1227,18 +1175,40 @@ Cámara 360°: ${c.camera}
 Botón: ${c.button}%
 DPI: ${c.dpi}`;
 
+}
 
-if(
-navigator.clipboard &&
-navigator.clipboard.writeText
-){
+
+function copySensi(){
+
+if(!currentConfig){
+
+alert(
+"⚠️ Primero genera una sensibilidad."
+);
+
+return;
+
+}
+
+const text=getSensiText();
+
+
+if(navigator.clipboard){
 
 navigator.clipboard
 .writeText(text)
-.then(function(){
+.then(()=>{
 
 alert(
-"✅ Sensibilidad copiada correctamente."
+"✅ SENSI COPIADA."
+);
+
+})
+.catch(()=>{
+
+prompt(
+"Copia la configuración:",
+text
 );
 
 });
@@ -1249,6 +1219,75 @@ prompt(
 "Copia la configuración:",
 text
 );
+
+}
+
+}
+
+
+/* =====================================================
+COPIAR Y ABRIR
+===================================================== */
+
+function copyAndOpen(version){
+
+if(!currentConfig){
+
+alert(
+"⚠️ Primero genera una sensibilidad."
+);
+
+return;
+
+}
+
+const text=getSensiText();
+
+
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
+
+navigator.clipboard
+.writeText(text)
+.then(()=>{
+
+openGame(version);
+
+})
+.catch(()=>{
+
+alert(
+"⚠️ No se pudo copiar automáticamente."
+);
+
+});
+
+}else{
+
+openGame(version);
+
+}
+
+}
+
+
+/* =====================================================
+ABRIR JUEGO
+===================================================== */
+
+function openGame(version){
+
+if(version==="max"){
+
+window.location.href=
+"freefiremax://";
+
+}else{
+
+window.location.href=
+"freefire://";
 
 }
 
@@ -1271,7 +1310,6 @@ user
 
 div.textContent=text;
 
-
 const chat=
 document.getElementById("chat");
 
@@ -1284,7 +1322,7 @@ chat.scrollHeight;
 
 
 /* =====================================================
-IA
+IA LOCAL
 ===================================================== */
 
 function askAI(){
@@ -1295,26 +1333,20 @@ document.getElementById("question");
 const text=
 input.value.trim();
 
-
 if(!text)
 return;
-
 
 addMessage(
 text,
 true
 );
 
-
 input.value="";
-
 
 const lower=
 text.toLowerCase();
 
-
 let level=null;
-
 
 if(lower.includes("baja"))
 level="baja";
@@ -1328,7 +1360,6 @@ level="alta";
 
 let found=null;
 
-
 for(
 const phone of phones
 ){
@@ -1340,7 +1371,6 @@ phone.toLowerCase()
 ){
 
 found=phone;
-
 break;
 
 }
@@ -1385,11 +1415,11 @@ if(!level){
 
 addMessage(
 
-`🤖 Puedo generar:
+`🤖 Puedes pedirme:
 
-• Sensi baja
-• Sensi media
-• Sensi alta
+• sensi baja
+• sensi media
+• sensi alta
 
 Ejemplos:
 
@@ -1413,8 +1443,6 @@ if(!phone){
 addMessage(
 "🤖 Primero dime el modelo del teléfono."
 );
-
-return;
 
 }
 
