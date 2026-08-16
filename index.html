@@ -3,376 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>EXOTIC LINOX</title>
+<title>EXOTIC LINOX V3</title>
 
 <style>
-*{
-    box-sizing:border-box;
+*{box-sizing:border-box}
+
+body{
     margin:0;
-    padding:0;
+    background:#050708;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
 }
 
-body{
-    background:#07090c;
-    color:white;
-    min-height:100vh;
-}
-
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(7,9,12,.96);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #222831;
-    padding:15px 5%;
+    padding:20px;
+    border-bottom:1px solid #20272b;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:sticky;
+    top:0;
+    background:#050708;
+    z-index:10;
 }
 
 .logo{
-    font-weight:900;
-    font-size:22px;
-    letter-spacing:1px;
+    font-size:24px;
+    font-weight:bold;
 }
 
 .logo span{
-    color:#00ff91;
-}
-
-nav{
-    display:flex;
-    gap:18px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#aaa;
-    font-size:13px;
-}
-
-nav a:hover{
-    color:#00ff91;
-}
-
-.hero{
-    text-align:center;
-    padding:60px 5% 35px;
-}
-
-.badge{
-    display:inline-block;
-    border:1px solid #00ff91;
-    color:#00ff91;
-    padding:7px 14px;
-    border-radius:30px;
-    font-size:11px;
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:clamp(38px,8vw,72px);
-}
-
-.hero h1 span{
-    color:#00ff91;
-}
-
-.hero p{
-    color:#8b909b;
-    max-width:650px;
-    margin:12px auto 25px;
-    line-height:1.6;
-}
-
-.search{
-    max-width:700px;
-    margin:auto;
-}
-
-.search input{
-    width:100%;
-    padding:17px 20px;
-    border-radius:15px;
-    border:1px solid #2a2e37;
-    background:#11141a;
-    color:white;
-    outline:none;
-    font-size:15px;
-}
-
-.search input:focus{
-    border-color:#00ff91;
+    color:#00f58a;
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+    width:94%;
+    max-width:950px;
+    margin:25px auto;
 }
 
-.section{
-    padding:30px 0;
+.card{
+    background:#0c1114;
+    border:1px solid #202a2f;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:18px;
 }
 
-.title{
-    margin-bottom:20px;
+input,button{
+    width:100%;
+    padding:14px;
+    margin-top:9px;
+    border-radius:12px;
+    font-size:16px;
 }
 
-.title h2{
-    font-size:28px;
+input{
+    background:#070a0c;
+    border:1px solid #303a40;
+    color:white;
+    outline:none;
 }
 
-.title p{
-    color:#777d88;
-    margin-top:6px;
-}
-
-.categories{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-bottom:22px;
-}
-
-.category{
-    border:1px solid #292e38;
-    background:#11141a;
-    color:#aaa;
-    border-radius:10px;
-    padding:10px 15px;
+button{
+    background:#00ed88;
+    color:#00150c;
+    border:0;
+    font-weight:bold;
     cursor:pointer;
 }
 
-.category.active,
-.category:hover{
-    color:#00ff91;
-    border-color:#00ff91;
+button.secondary{
+    background:#11191d;
+    color:white;
+    border:1px solid #303a40;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:14px;
-}
-
-.card{
-    background:#101319;
-    border:1px solid #252a34;
-    border-radius:17px;
-    padding:18px;
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-    border-color:#00ff91;
-}
-
-.brand{
-    color:#00ff91;
-    font-size:11px;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-
-.phone{
-    font-size:18px;
-    font-weight:bold;
-    margin:7px 0 15px;
-}
-
-.card button,
-.main-btn{
-    width:100%;
-    border:0;
-    border-radius:10px;
-    padding:12px;
-    background:#00ff91;
-    color:#00150d;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.card button:hover,
-.main-btn:hover{
-    opacity:.85;
-}
-
-.count{
-    color:#777d88;
-    font-size:12px;
-    margin-bottom:15px;
-}
-
-.no-results{
-    display:none;
-    text-align:center;
-    color:#777;
-    padding:35px;
-}
-
-/* CONFIGURADOR */
-
-.config{
-    background:#101319;
-    border:1px solid #252a34;
-    border-radius:20px;
-    padding:25px;
-    margin-top:20px;
-}
-
-.selected-phone{
-    color:#00ff91;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.levels{
-    display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
-    margin-bottom:20px;
-}
-
-.level{
-    padding:15px 8px;
-    background:#171a21;
-    border:1px solid #292e38;
-    color:#aaa;
-    border-radius:12px;
-    cursor:pointer;
-    text-align:center;
-}
-
-.level.active{
-    border-color:#00ff91;
-    color:#00ff91;
-    background:#101f18;
 }
 
 .results{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:12px;
-    margin-top:20px;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:10px;
 }
 
 .result{
-    background:#080b0f;
-    border:1px solid #252a34;
-    border-radius:13px;
-    padding:17px;
+    background:#080d0f;
+    border:1px solid #202b30;
+    border-radius:12px;
+    padding:14px;
 }
 
-.result small{
+.result span{
     display:block;
-    color:#777d88;
-    margin-bottom:7px;
+    color:#8e9ba0;
+    font-size:13px;
 }
 
 .result strong{
-    font-size:21px;
+    display:block;
+    color:#00f58a;
+    font-size:24px;
+    margin-top:5px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 12px;
+    background:#07321f;
     color:#00ff91;
-}
-
-.note{
-    margin-top:15px;
-    color:#777d88;
-    font-size:12px;
-    line-height:1.5;
-}
-
-/* HERRAMIENTAS */
-
-.tools{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:15px;
-}
-
-.tool{
-    padding:23px;
-    background:#101319;
-    border:1px solid #252a34;
-    border-radius:17px;
-}
-
-.tool-icon{
-    font-size:27px;
-    margin-bottom:12px;
-}
-
-.tool h3{
-    margin-bottom:8px;
-}
-
-.tool p{
-    color:#858a95;
-    font-size:14px;
-    line-height:1.6;
-}
-
-/* PREMIUM */
-
-.premium{
-    margin:35px 0;
-    padding:30px;
     border-radius:20px;
-    border:1px solid #00ff91;
-    background:#0d1511;
+    font-weight:bold;
 }
 
-.premium h2{
-    color:#00ff91;
+.small{
+    color:#89969b;
+    font-size:13px;
+}
+
+.mod{
+    padding:9px 0;
+    border-bottom:1px solid #182125;
+}
+
+.chat{
+    height:280px;
+    overflow:auto;
+    background:#050708;
+    border:1px solid #202a2f;
+    border-radius:12px;
+    padding:12px;
+}
+
+.msg{
+    background:#11191d;
+    padding:11px;
+    border-radius:10px;
     margin-bottom:8px;
+    white-space:pre-wrap;
 }
 
-.premium p{
-    color:#888e98;
-}
-
-.premium ul{
-    list-style:none;
-    margin:20px 0;
-}
-
-.premium li{
-    padding:7px 0;
-    color:#bbb;
-}
-
-footer{
-    border-top:1px solid #222831;
-    text-align:center;
-    color:#606672;
-    padding:30px;
-    margin-top:40px;
-    font-size:12px;
+.msg.user{
+    background:#063a25;
 }
 
 @media(max-width:600px){
-
-    header{
-        padding:13px 4%;
-    }
-
-    nav{
-        gap:9px;
-    }
-
-    nav a{
-        font-size:11px;
-    }
-
-    .hero{
-        padding-top:40px;
-    }
-
-    .levels{
+    .grid{
         grid-template-columns:1fr;
     }
 }
@@ -382,339 +162,118 @@ footer{
 <body>
 
 <header>
-
     <div class="logo">
-        EXOTIC <span>LINOX</span>
+        EXOTIC <span>LINOX</span> V3
     </div>
 
-    <nav>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#configuracion">Configuración</a>
-        <a href="#herramientas">Herramientas</a>
-        <a href="#premium">Premium</a>
-    </nav>
-
+    <div class="small">
+        SENSI + AI
+    </div>
 </header>
 
 
-<section class="hero">
+<div class="container">
 
-    <div class="badge">
-        EXOTIC LINOX • GAMING CONFIGURATION
-    </div>
+<!-- BUSCADOR -->
 
-    <h1>
-        EXOTIC <span>LINOX</span>
-    </h1>
+<div class="card">
 
-    <p>
-        Encuentra tu dispositivo y consulta
-        configuraciones de sensibilidad,
-        botón de disparo y recomendaciones.
-    </p>
+<h2>📱 Buscar teléfono</h2>
 
-    <div class="search">
+<input
+id="phone"
+list="phones"
+placeholder="Escribe tu modelo..."
+autocomplete="off"
+>
 
-        <input
-            id="search"
-            type="search"
-            placeholder="🔎 Buscar Redmi Note 11, POCO X6, iPhone 15 Pro Max..."
-        >
+<datalist id="phones"></datalist>
 
-    </div>
+<p class="small">
+Ejemplo: Redmi Note 11, Samsung A55, iPhone 13, POCO X6 Pro, Tecno Spark 20...
+</p>
 
-</section>
+</div>
 
 
-<main class="container">
+<!-- NIVEL -->
 
+<div class="card">
 
-<section class="section" id="catalogo">
+<h2>🎯 Selecciona la sensibilidad</h2>
 
-    <div class="title">
+<div class="grid">
 
-        <h2>📱 Catálogo de dispositivos</h2>
+<button onclick="generate('baja')">
+SENSI BAJA
+</button>
 
-        <p>
-            Selecciona una marca o busca directamente tu teléfono.
-        </p>
+<button onclick="generate('media')">
+SENSI MEDIA
+</button>
 
-    </div>
+<button onclick="generate('alta')">
+SENSI ALTA
+</button>
 
+</div>
 
-    <div class="categories">
+<p class="small">
+Baja: 75–115 · Media: 120–165 · Alta: 170–197
+</p>
 
-        <button class="category active"
-        onclick="filterBrand('Todos',this)">
-            Todos
-        </button>
+</div>
 
-        <button class="category"
-        onclick="filterBrand('Redmi',this)">
-            Redmi
-        </button>
 
-        <button class="category"
-        onclick="filterBrand('POCO',this)">
-            POCO
-        </button>
+<!-- RESULTADO -->
 
-        <button class="category"
-        onclick="filterBrand('Samsung',this)">
-            Samsung
-        </button>
+<div class="card" id="configuration">
 
-        <button class="category"
-        onclick="filterBrand('Infinix',this)">
-            Infinix
-        </button>
+<h2>⚙️ Configuración</h2>
 
-        <button class="category"
-        onclick="filterBrand('Tecno',this)">
-            Tecno
-        </button>
+<p class="small">
+Busca tu teléfono y selecciona Baja, Media o Alta.
+</p>
 
-        <button class="category"
-        onclick="filterBrand('iPhone',this)">
-            iPhone
-        </button>
+</div>
 
-    </div>
 
+<!-- IA -->
 
-    <div class="count" id="count"></div>
+<div class="card">
 
-    <div class="grid" id="devices"></div>
+<h2>🤖 EXOTIC LINOX AI</h2>
 
-    <div class="no-results" id="noResults">
-        ❌ No se encontró ese dispositivo.
-    </div>
+<div class="chat" id="chat">
 
-</section>
+<div class="msg">
+🤖 Hola. Soy la IA de EXOTIC LINOX.
 
+Puedo ayudarte a generar una configuración.
 
-<section class="section" id="configuracion">
+Ejemplos:
 
-    <div class="title">
+• sensi alta Redmi Note 11
+• sensi baja Samsung A55
+• sensi media iPhone 13
+• configuración POCO X6 Pro
+</div>
 
-        <h2>🎯 Configuración de sensibilidad</h2>
+</div>
 
-        <p>
-            Selecciona un dispositivo y después el nivel
-            de sensibilidad que quieres consultar.
-        </p>
+<input
+id="question"
+placeholder="Escribe tu comando..."
+onkeydown="if(event.key==='Enter')askAI()"
+>
 
-    </div>
+<button onclick="askAI()">
+ENVIAR
+</button>
 
+</div>
 
-    <div class="config">
-
-        <div class="selected-phone" id="selectedPhone">
-            Selecciona un teléfono del catálogo
-        </div>
-
-
-        <div class="levels">
-
-            <button class="level"
-            onclick="selectLevel('baja',this)">
-                🟢 SENSI BAJA
-            </button>
-
-            <button class="level"
-            onclick="selectLevel('media',this)">
-                🟡 SENSI MEDIA
-            </button>
-
-            <button class="level"
-            onclick="selectLevel('alta',this)">
-                🔴 SENSI ALTA
-            </button>
-
-        </div>
-
-
-        <div class="results">
-
-            <div class="result">
-
-                <small>
-                    Sensibilidad del juego
-                </small>
-
-                <strong id="gameSensitivity">
-                    —
-                </strong>
-
-            </div>
-
-
-            <div class="result">
-
-                <small>
-                    Botón de disparo
-                </small>
-
-                <strong id="fireButton">
-                    —
-                </strong>
-
-            </div>
-
-
-            <div class="result">
-
-                <small>
-                    DPI recomendado
-                </small>
-
-                <strong id="dpi">
-                    —
-                </strong>
-
-            </div>
-
-
-            <div class="result">
-
-                <small>
-                    Perfil
-                </small>
-
-                <strong id="profile">
-                    —
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <div class="note">
-
-            Las configuraciones son referencias para ajustar
-            manualmente los controles del juego. No modifican
-            el juego ni instalan archivos externos.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="section" id="herramientas">
-
-    <div class="title">
-
-        <h2>⚙️ Herramientas</h2>
-
-        <p>
-            Recomendaciones antes de comenzar a jugar.
-        </p>
-
-    </div>
-
-
-    <div class="tools">
-
-        <div class="tool">
-
-            <div class="tool-icon">🎯</div>
-
-            <h3>Controles</h3>
-
-            <p>
-                Ajusta manualmente el tamaño y posición
-                del botón de disparo según el perfil elegido.
-            </p>
-
-        </div>
-
-
-        <div class="tool">
-
-            <div class="tool-icon">📱</div>
-
-            <h3>Optimización</h3>
-
-            <p>
-                Cierra aplicaciones innecesarias,
-                libera espacio y evita jugar con el
-                dispositivo excesivamente caliente.
-            </p>
-
-        </div>
-
-
-        <div class="tool">
-
-            <div class="tool-icon">🔋</div>
-
-            <h3>Batería</h3>
-
-            <p>
-                Comprueba la batería antes de jugar
-                y evita configuraciones que provoquen
-                calentamiento excesivo.
-            </p>
-
-        </div>
-
-
-        <div class="tool">
-
-            <div class="tool-icon">📶</div>
-
-            <h3>Conexión</h3>
-
-            <p>
-                Comprueba la estabilidad de tu conexión
-                antes de comenzar una partida.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="premium" id="premium">
-
-    <h2>💎 EXOTIC LINOX PREMIUM</h2>
-
-    <p>
-        Área preparada para futuras configuraciones
-        y contenido exclusivo.
-    </p>
-
-    <ul>
-
-        <li>✓ Más perfiles por dispositivo</li>
-        <li>✓ Configuraciones personalizadas</li>
-        <li>✓ Nuevos teléfonos</li>
-        <li>✓ Guías avanzadas</li>
-        <li>✓ Favoritos</li>
-
-    </ul>
-
-    <button class="main-btn"
-    onclick="alert('EXOTIC LINOX PREMIUM — próximamente')">
-        Entrar a Premium
-    </button>
-
-</section>
-
-</main>
-
-
-<footer>
-
-    EXOTIC LINOX © 2026<br>
-    Gaming Configuration Hub
-
-</footer>
+</div>
 
 
 <script>
@@ -723,361 +282,949 @@ footer{
    CATÁLOGO
 ===================================================== */
 
-const devices = [
-
-/* REDMI */
-
-["Redmi","Redmi 8"],
-["Redmi","Redmi 8A"],
-["Redmi","Redmi 9"],
-["Redmi","Redmi 9A"],
-["Redmi","Redmi 9C"],
-["Redmi","Redmi 9T"],
-["Redmi","Redmi 10"],
-["Redmi","Redmi 10C"],
-["Redmi","Redmi 11"],
-["Redmi","Redmi 12"],
-["Redmi","Redmi 12C"],
-["Redmi","Redmi 13"],
-["Redmi","Redmi 13C"],
-["Redmi","Redmi 14C"],
-["Redmi","Redmi 15"],
-
-["Redmi","Redmi Note 7"],
-["Redmi","Redmi Note 8"],
-["Redmi","Redmi Note 8 Pro"],
-["Redmi","Redmi Note 9"],
-["Redmi","Redmi Note 9 Pro"],
-["Redmi","Redmi Note 9S"],
-["Redmi","Redmi Note 10"],
-["Redmi","Redmi Note 10 Pro"],
-["Redmi","Redmi Note 10S"],
-["Redmi","Redmi Note 11"],
-["Redmi","Redmi Note 11S"],
-["Redmi","Redmi Note 11 Pro"],
-["Redmi","Redmi Note 11 Pro 5G"],
-["Redmi","Redmi Note 12"],
-["Redmi","Redmi Note 12S"],
-["Redmi","Redmi Note 12 Pro"],
-["Redmi","Redmi Note 12 Pro 5G"],
-["Redmi","Redmi Note 12 Pro+"],
-["Redmi","Redmi Note 13"],
-["Redmi","Redmi Note 13 Pro"],
-["Redmi","Redmi Note 13 Pro 5G"],
-["Redmi","Redmi Note 13 Pro+"],
-["Redmi","Redmi Note 14"],
-["Redmi","Redmi Note 14 Pro"],
-["Redmi","Redmi Note 14 Pro 5G"],
-["Redmi","Redmi Note 14 Pro+"],
-["Redmi","Redmi Note 15"],
-["Redmi","Redmi Note 15 Pro"],
-["Redmi","Redmi Note 15 Pro+"],
-
-["Redmi","Redmi K20"],
-["Redmi","Redmi K20 Pro"],
-["Redmi","Redmi K30"],
-["Redmi","Redmi K30 Pro"],
-["Redmi","Redmi K40"],
-["Redmi","Redmi K40 Pro"],
-["Redmi","Redmi K50"],
-["Redmi","Redmi K50 Pro"],
-["Redmi","Redmi K60"],
-["Redmi","Redmi K60 Pro"],
-["Redmi","Redmi K70"],
-["Redmi","Redmi K70 Pro"],
-["Redmi","Redmi K80"],
-["Redmi","Redmi K80 Pro"],
-
-
-/* POCO */
-
-["POCO","POCO X2"],
-["POCO","POCO X3"],
-["POCO","POCO X3 NFC"],
-["POCO","POCO X3 Pro"],
-["POCO","POCO X4 Pro 5G"],
-["POCO","POCO X4 GT"],
-["POCO","POCO X5"],
-["POCO","POCO X5 Pro 5G"],
-["POCO","POCO X6"],
-["POCO","POCO X6 Pro"],
-["POCO","POCO X7"],
-["POCO","POCO X7 Pro"],
-
-["POCO","POCO F2 Pro"],
-["POCO","POCO F3"],
-["POCO","POCO F4"],
-["POCO","POCO F4 GT"],
-["POCO","POCO F5"],
-["POCO","POCO F5 Pro"],
-["POCO","POCO F6"],
-["POCO","POCO F6 Pro"],
-["POCO","POCO F7"],
-["POCO","POCO F7 Pro"],
-["POCO","POCO F7 Ultra"],
-
-["POCO","POCO M2"],
-["POCO","POCO M2 Pro"],
-["POCO","POCO M3"],
-["POCO","POCO M4 Pro"],
-["POCO","POCO M5"],
-["POCO","POCO M5s"],
-["POCO","POCO M6"],
-["POCO","POCO M6 Pro"],
-["POCO","POCO M7"],
-["POCO","POCO M7 Pro"],
-
+const phones = [
 
 /* SAMSUNG */
 
-["Samsung","Samsung Galaxy A12"],
-["Samsung","Samsung Galaxy A13"],
-["Samsung","Samsung Galaxy A14"],
-["Samsung","Samsung Galaxy A15"],
-["Samsung","Samsung Galaxy A16"],
-["Samsung","Samsung Galaxy A22"],
-["Samsung","Samsung Galaxy A23"],
-["Samsung","Samsung Galaxy A24"],
-["Samsung","Samsung Galaxy A25"],
-["Samsung","Samsung Galaxy A26"],
-["Samsung","Samsung Galaxy A32"],
-["Samsung","Samsung Galaxy A33"],
-["Samsung","Samsung Galaxy A34"],
-["Samsung","Samsung Galaxy A35"],
-["Samsung","Samsung Galaxy A36"],
-["Samsung","Samsung Galaxy A52"],
-["Samsung","Samsung Galaxy A52s"],
-["Samsung","Samsung Galaxy A53"],
-["Samsung","Samsung Galaxy A54"],
-["Samsung","Samsung Galaxy A55"],
-["Samsung","Samsung Galaxy A56"],
-["Samsung","Samsung Galaxy A72"],
-["Samsung","Samsung Galaxy A73"],
+"Samsung Galaxy A01",
+"Samsung Galaxy A02",
+"Samsung Galaxy A03",
+"Samsung Galaxy A03s",
+"Samsung Galaxy A04",
+"Samsung Galaxy A04e",
+"Samsung Galaxy A04s",
+"Samsung Galaxy A05",
+"Samsung Galaxy A05s",
+"Samsung Galaxy A06",
+"Samsung Galaxy A10",
+"Samsung Galaxy A10s",
+"Samsung Galaxy A11",
+"Samsung Galaxy A12",
+"Samsung Galaxy A13",
+"Samsung Galaxy A14",
+"Samsung Galaxy A15",
+"Samsung Galaxy A16",
+"Samsung Galaxy A20",
+"Samsung Galaxy A21",
+"Samsung Galaxy A22",
+"Samsung Galaxy A23",
+"Samsung Galaxy A24",
+"Samsung Galaxy A25",
+"Samsung Galaxy A26",
+"Samsung Galaxy A30",
+"Samsung Galaxy A31",
+"Samsung Galaxy A32",
+"Samsung Galaxy A33",
+"Samsung Galaxy A34",
+"Samsung Galaxy A35",
+"Samsung Galaxy A36",
+"Samsung Galaxy A40",
+"Samsung Galaxy A41",
+"Samsung Galaxy A42",
+"Samsung Galaxy A50",
+"Samsung Galaxy A51",
+"Samsung Galaxy A52",
+"Samsung Galaxy A52s",
+"Samsung Galaxy A53",
+"Samsung Galaxy A54",
+"Samsung Galaxy A55",
+"Samsung Galaxy A56",
+"Samsung Galaxy A70",
+"Samsung Galaxy A71",
+"Samsung Galaxy A72",
 
-["Samsung","Samsung Galaxy S20"],
-["Samsung","Samsung Galaxy S20+"],
-["Samsung","Samsung Galaxy S20 Ultra"],
-["Samsung","Samsung Galaxy S21"],
-["Samsung","Samsung Galaxy S21+"],
-["Samsung","Samsung Galaxy S21 Ultra"],
-["Samsung","Samsung Galaxy S22"],
-["Samsung","Samsung Galaxy S22+"],
-["Samsung","Samsung Galaxy S22 Ultra"],
-["Samsung","Samsung Galaxy S23"],
-["Samsung","Samsung Galaxy S23+"],
-["Samsung","Samsung Galaxy S23 Ultra"],
-["Samsung","Samsung Galaxy S24"],
-["Samsung","Samsung Galaxy S24+"],
-["Samsung","Samsung Galaxy S24 Ultra"],
-["Samsung","Samsung Galaxy S25"],
-["Samsung","Samsung Galaxy S25+"],
-["Samsung","Samsung Galaxy S25 Ultra"],
+"Samsung Galaxy S8",
+"Samsung Galaxy S9",
+"Samsung Galaxy S10",
+"Samsung Galaxy S10+",
+"Samsung Galaxy S20",
+"Samsung Galaxy S20+",
+"Samsung Galaxy S20 Ultra",
+"Samsung Galaxy S21",
+"Samsung Galaxy S21+",
+"Samsung Galaxy S21 Ultra",
+"Samsung Galaxy S22",
+"Samsung Galaxy S22+",
+"Samsung Galaxy S22 Ultra",
+"Samsung Galaxy S23",
+"Samsung Galaxy S23+",
+"Samsung Galaxy S23 Ultra",
+"Samsung Galaxy S24",
+"Samsung Galaxy S24+",
+"Samsung Galaxy S24 Ultra",
+"Samsung Galaxy S25",
+"Samsung Galaxy S25+",
+"Samsung Galaxy S25 Ultra",
+"Samsung Galaxy S26",
+"Samsung Galaxy S26+",
+"Samsung Galaxy S26 Ultra",
 
-["Samsung","Samsung Galaxy M12"],
-["Samsung","Samsung Galaxy M13"],
-["Samsung","Samsung Galaxy M14"],
-["Samsung","Samsung Galaxy M15"],
-["Samsung","Samsung Galaxy M21"],
-["Samsung","Samsung Galaxy M23"],
-["Samsung","Samsung Galaxy M31"],
-["Samsung","Samsung Galaxy M32"],
-["Samsung","Samsung Galaxy M33"],
-["Samsung","Samsung Galaxy M34"],
-["Samsung","Samsung Galaxy M35"],
-["Samsung","Samsung Galaxy M51"],
-["Samsung","Samsung Galaxy M52"],
+"Samsung Galaxy Note 8",
+"Samsung Galaxy Note 9",
+"Samsung Galaxy Note 10",
+"Samsung Galaxy Note 10+",
+"Samsung Galaxy Note 20",
+"Samsung Galaxy Note 20 Ultra",
 
-["Samsung","Samsung Galaxy Z Fold 3"],
-["Samsung","Samsung Galaxy Z Fold 4"],
-["Samsung","Samsung Galaxy Z Fold 5"],
-["Samsung","Samsung Galaxy Z Fold 6"],
-["Samsung","Samsung Galaxy Z Flip 3"],
-["Samsung","Samsung Galaxy Z Flip 4"],
-["Samsung","Samsung Galaxy Z Flip 5"],
-["Samsung","Samsung Galaxy Z Flip 6"],
+/* REDMI */
 
+"Redmi 7",
+"Redmi 8",
+"Redmi 9",
+"Redmi 9A",
+"Redmi 9C",
+"Redmi 10",
+"Redmi 10C",
+"Redmi 12",
+"Redmi 12C",
+"Redmi 13",
+"Redmi 13C",
+"Redmi 14C",
 
-/* INFINIX */
+"Redmi Note 7",
+"Redmi Note 8",
+"Redmi Note 8 Pro",
+"Redmi Note 9",
+"Redmi Note 9 Pro",
+"Redmi Note 9S",
+"Redmi Note 10",
+"Redmi Note 10S",
+"Redmi Note 10 Pro",
+"Redmi Note 11",
+"Redmi Note 11S",
+"Redmi Note 11 Pro",
+"Redmi Note 11 Pro 5G",
+"Redmi Note 12",
+"Redmi Note 12S",
+"Redmi Note 12 Pro",
+"Redmi Note 12 Pro 5G",
+"Redmi Note 13",
+"Redmi Note 13 Pro",
+"Redmi Note 13 Pro 5G",
+"Redmi Note 13 Pro+",
+"Redmi Note 14",
+"Redmi Note 14 Pro",
+"Redmi Note 14 Pro 5G",
+"Redmi Note 14 Pro+",
 
-["Infinix","Infinix Hot 10"],
-["Infinix","Infinix Hot 11"],
-["Infinix","Infinix Hot 12"],
-["Infinix","Infinix Hot 20"],
-["Infinix","Infinix Hot 30"],
-["Infinix","Infinix Hot 40"],
-["Infinix","Infinix Hot 50"],
-["Infinix","Infinix Hot 60"],
+/* POCO */
 
-["Infinix","Infinix Note 10"],
-["Infinix","Infinix Note 11"],
-["Infinix","Infinix Note 12"],
-["Infinix","Infinix Note 30"],
-["Infinix","Infinix Note 40"],
-["Infinix","Infinix Note 50"],
+"POCO M2",
+"POCO M3",
+"POCO M4",
+"POCO M4 Pro",
+"POCO M5",
+"POCO M5s",
+"POCO M6",
+"POCO M6 Pro",
+"POCO X2",
+"POCO X3",
+"POCO X3 NFC",
+"POCO X3 Pro",
+"POCO X4 Pro",
+"POCO X5",
+"POCO X5 Pro",
+"POCO X6",
+"POCO X6 Pro",
+"POCO X7",
+"POCO X7 Pro",
+"POCO F2 Pro",
+"POCO F3",
+"POCO F4",
+"POCO F5",
+"POCO F5 Pro",
+"POCO F6",
+"POCO F6 Pro",
+"POCO F7",
+"POCO F7 Pro",
+"POCO F7 Ultra",
 
-["Infinix","Infinix Zero 20"],
-["Infinix","Infinix Zero 30"],
-["Infinix","Infinix Zero 40"],
+/* XIAOMI */
 
-["Infinix","Infinix GT 10 Pro"],
-["Infinix","Infinix GT 20 Pro"],
-["Infinix","Infinix GT 30 Pro"],
-
-
-/* TECNO */
-
-["Tecno","Tecno Spark 8"],
-["Tecno","Tecno Spark 9"],
-["Tecno","Tecno Spark 10"],
-["Tecno","Tecno Spark 20"],
-["Tecno","Tecno Spark 20 Pro"],
-["Tecno","Tecno Spark 20 Pro+"],
-["Tecno","Tecno Spark 30"],
-["Tecno","Tecno Spark 30 Pro"],
-["Tecno","Tecno Spark 40"],
-
-["Tecno","Tecno Camon 18"],
-["Tecno","Tecno Camon 19"],
-["Tecno","Tecno Camon 20"],
-["Tecno","Tecno Camon 30"],
-["Tecno","Tecno Camon 40"],
-
-["Tecno","Tecno POVA 4"],
-["Tecno","Tecno POVA 5"],
-["Tecno","Tecno POVA 5 Pro"],
-["Tecno","Tecno POVA 6"],
-["Tecno","Tecno POVA 6 Pro"],
-["Tecno","Tecno POVA 7"],
-["Tecno","Tecno POVA 7 Pro"],
-
-["Tecno","Tecno Phantom X"],
-["Tecno","Tecno Phantom X2"],
-["Tecno","Tecno Phantom V Fold"],
-["Tecno","Tecno Phantom V Flip"],
-
+"Xiaomi Mi 9",
+"Xiaomi Mi 10",
+"Xiaomi Mi 10T",
+"Xiaomi Mi 11",
+"Xiaomi Mi 11 Lite",
+"Xiaomi Mi 12",
+"Xiaomi Mi 12 Lite",
+"Xiaomi Mi 12T",
+"Xiaomi Mi 13",
+"Xiaomi Mi 13 Lite",
+"Xiaomi Mi 13 Pro",
+"Xiaomi Mi 14",
+"Xiaomi Mi 14 Ultra",
+"Xiaomi Mi 15",
+"Xiaomi Mi 15 Ultra",
+"Xiaomi 12",
+"Xiaomi 12 Lite",
+"Xiaomi 13",
+"Xiaomi 13 Pro",
+"Xiaomi 14",
+"Xiaomi 14 Ultra",
+"Xiaomi 15",
 
 /* IPHONE */
 
-["iPhone","iPhone 8"],
-["iPhone","iPhone 8 Plus"],
-["iPhone","iPhone X"],
-["iPhone","iPhone XR"],
-["iPhone","iPhone XS"],
-["iPhone","iPhone XS Max"],
-["iPhone","iPhone 11"],
-["iPhone","iPhone 11 Pro"],
-["iPhone","iPhone 11 Pro Max"],
-["iPhone","iPhone SE 2020"],
-["iPhone","iPhone 12"],
-["iPhone","iPhone 12 mini"],
-["iPhone","iPhone 12 Pro"],
-["iPhone","iPhone 12 Pro Max"],
-["iPhone","iPhone 13"],
-["iPhone","iPhone 13 mini"],
-["iPhone","iPhone 13 Pro"],
-["iPhone","iPhone 13 Pro Max"],
-["iPhone","iPhone SE 2022"],
-["iPhone","iPhone 14"],
-["iPhone","iPhone 14 Plus"],
-["iPhone","iPhone 14 Pro"],
-["iPhone","iPhone 14 Pro Max"],
-["iPhone","iPhone 15"],
-["iPhone","iPhone 15 Plus"],
-["iPhone","iPhone 15 Pro"],
-["iPhone","iPhone 15 Pro Max"],
-["iPhone","iPhone 16"],
-["iPhone","iPhone 16 Plus"],
-["iPhone","iPhone 16 Pro"],
-["iPhone","iPhone 16 Pro Max"],
-["iPhone","iPhone 17"],
-["iPhone","iPhone 17 Air"],
-["iPhone","iPhone 17 Pro"],
-["iPhone","iPhone 17 Pro Max"]
+"iPhone 8",
+"iPhone 8 Plus",
+"iPhone X",
+"iPhone XR",
+"iPhone XS",
+"iPhone XS Max",
+"iPhone 11",
+"iPhone 11 Pro",
+"iPhone 11 Pro Max",
+"iPhone SE 2020",
+"iPhone 12",
+"iPhone 12 mini",
+"iPhone 12 Pro",
+"iPhone 12 Pro Max",
+"iPhone 13",
+"iPhone 13 mini",
+"iPhone 13 Pro",
+"iPhone 13 Pro Max",
+"iPhone SE 2022",
+"iPhone 14",
+"iPhone 14 Plus",
+"iPhone 14 Pro",
+"iPhone 14 Pro Max",
+"iPhone 15",
+"iPhone 15 Plus",
+"iPhone 15 Pro",
+"iPhone 15 Pro Max",
+"iPhone 16",
+"iPhone 16 Plus",
+"iPhone 16 Pro",
+"iPhone 16 Pro Max",
+
+/* MOTOROLA */
+
+"Motorola Moto G7",
+"Motorola Moto G8",
+"Motorola Moto G9",
+"Motorola Moto G10",
+"Motorola Moto G20",
+"Motorola Moto G22",
+"Motorola Moto G23",
+"Motorola Moto G24",
+"Motorola Moto G30",
+"Motorola Moto G31",
+"Motorola Moto G32",
+"Motorola Moto G34",
+"Motorola Moto G40",
+"Motorola Moto G41",
+"Motorola Moto G42",
+"Motorola Moto G50",
+"Motorola Moto G51",
+"Motorola Moto G52",
+"Motorola Moto G53",
+"Motorola Moto G54",
+"Motorola Moto G55",
+"Motorola Moto G60",
+"Motorola Moto G62",
+"Motorola Moto G73",
+"Motorola Moto G84",
+"Motorola Moto G85",
+"Motorola Edge 20",
+"Motorola Edge 30",
+"Motorola Edge 40",
+"Motorola Edge 40 Neo",
+"Motorola Edge 50",
+"Motorola Edge 50 Fusion",
+"Motorola Edge 50 Pro",
+"Motorola Edge 50 Ultra",
+"Motorola Edge 60",
+"Motorola Edge 60 Fusion",
+"Motorola Edge 60 Pro",
+"Motorola Razr 40",
+"Motorola Razr 40 Ultra",
+"Motorola Razr 50",
+"Motorola Razr 50 Ultra",
+"Motorola Razr 60",
+
+/* TECNO */
+
+"Tecno Spark 7",
+"Tecno Spark 8",
+"Tecno Spark 9",
+"Tecno Spark 10",
+"Tecno Spark 10 Pro",
+"Tecno Spark 20",
+"Tecno Spark 20 Pro",
+"Tecno Spark 20 Pro+",
+"Tecno Spark 20C",
+"Tecno Spark 30",
+"Tecno Spark 30 Pro",
+"Tecno Spark 30C",
+"Tecno Spark 40",
+"Tecno Spark 40 Pro",
+
+"Tecno Pova 3",
+"Tecno Pova 4",
+"Tecno Pova 4 Pro",
+"Tecno Pova 5",
+"Tecno Pova 5 Pro",
+"Tecno Pova 6",
+"Tecno Pova 6 Pro",
+"Tecno Pova 7",
+"Tecno Pova 7 Pro",
+
+"Tecno Camon 18",
+"Tecno Camon 19",
+"Tecno Camon 20",
+"Tecno Camon 20 Pro",
+"Tecno Camon 20 Premier",
+"Tecno Camon 30",
+"Tecno Camon 30 Pro",
+"Tecno Camon 30 Premier",
+"Tecno Camon 40",
+"Tecno Camon 40 Pro",
+
+/* INFINIX */
+
+"Infinix Hot 10",
+"Infinix Hot 11",
+"Infinix Hot 12",
+"Infinix Hot 20",
+"Infinix Hot 30",
+"Infinix Hot 40",
+"Infinix Hot 50",
+"Infinix Hot 50 Pro",
+"Infinix Hot 50 Pro+",
+"Infinix Hot 60",
+
+"Infinix Note 10",
+"Infinix Note 11",
+"Infinix Note 12",
+"Infinix Note 30",
+"Infinix Note 30 Pro",
+"Infinix Note 40",
+"Infinix Note 40 Pro",
+"Infinix Note 50",
+"Infinix Note 50 Pro",
+
+"Infinix Zero 20",
+"Infinix Zero 30",
+"Infinix Zero 30 5G",
+"Infinix Zero 40",
+"Infinix Zero 40 5G",
+
+"Infinix GT 10 Pro",
+"Infinix GT 20 Pro",
+"Infinix GT 30 Pro"
 
 ];
 
 
 /* =====================================================
-   CREAR TARJETAS
+   CREAR BUSCADOR
 ===================================================== */
 
-const devicesContainer =
-document.getElementById("devices");
+const datalist=document.getElementById("phones");
 
-function renderDevices(){
+phones.forEach(function(phone){
 
-    devicesContainer.innerHTML="";
+    const option=document.createElement("option");
 
-    devices.forEach((device,index)=>{
+    option.value=phone;
 
-        const brand=device[0];
-        const name=device[1];
-
-        const card=document.createElement("div");
-
-        card.className="card";
-
-        card.dataset.brand=brand;
-        card.dataset.name=name.toLowerCase();
-
-        card.innerHTML=`
-
-            <div class="brand">
-                ${brand}
-            </div>
-
-            <div class="phone">
-                ${name}
-            </div>
-
-            <button onclick="openConfig('${name.replace(/'/g,"\\'")}')">
-                Ver configuración
-            </button>
-
-        `;
-
-        devicesContainer.appendChild(card);
-
-    });
-
-    updateCount();
-
-}
-
-renderDevices();
-
-
-/* =====================================================
-   FILTRO
-===================================================== */
-
-let currentBrand="Todos";
-
-function filterBrand(brand,button){
-
-    currentBrand=brand;
-
-    document
-    .querySelectorAll(".category")
-    .forEach(x=>x.classList.remove("active"));
-
-    button.classList.add("active");
-
-    applyFilters();
-
-}
-
-
-document
-.getElementById("search")
-.addEventListener("input",function(){
-
-    applyFilters();
+    datalist.appendChild(option);
 
 });
 
 
-function applyFilters(){
+/* =====================================================
+   DETECTAR MARCA
+===================================================== */
+
+function getBrand(phone){
+
+    const p=phone.toLowerCase();
+
+    if(p.includes("iphone"))
+        return "iPhone";
+
+    if(p.includes("samsung") || p.includes("galaxy"))
+        return "Samsung";
+
+    if(p.includes("redmi"))
+        return "Redmi";
+
+    if(p.includes("poco"))
+        return "POCO";
+
+    if(p.includes("xiaomi") || p.startsWith("mi "))
+        return "Xiaomi";
+
+    if(
+        p.includes("motorola") ||
+        p.includes("moto ") ||
+        p.includes("razr") ||
+        p.includes("edge")
+    )
+        return "Motorola";
+
+    if(
+        p.includes("tecno") ||
+        p.includes("spark") ||
+        p.includes("pova") ||
+        p.includes("camon")
+    )
+        return "TECNO";
+
+    if(
+        p.includes("infinix") ||
+        p.includes("hot ") ||
+        p.includes("zero ") ||
+        p.includes("gt ")
+    )
+        return "Infinix";
+
+    return "Android";
+}
+
+
+/* =====================================================
+   NÚMERO ALEATORIO
+===================================================== */
+
+function random(min,max){
+
+    return Math.floor(
+        Math.random()*(max-min+1)
+    )+min;
+
+}
+
+
+/* =====================================================
+   GENERAR SENSIBILIDAD
+===================================================== */
+
+let currentConfig=null;
+
+function generate(level){
+
+    const phone=document
+        .getElementById("phone")
+        .value
+        .trim();
+
+    if(!phone){
+
+        alert("Primero escribe el modelo de tu teléfono.");
+
+        return;
+    }
+
+    const iphone=getBrand(phone)==="iPhone";
+
+    let general;
+    let red;
+    let x2;
+    let x4;
+    let sniper;
+    let camera;
+    let button;
+    let dpi;
+
+
+    /* BAJA */
+
+    if(level==="baja"){
+
+        general=random(75,115);
+
+        red=Math.max(
+            1,
+            general-random(15,30)
+        );
+
+        x2=random(75,115);
+
+        x4=random(75,115);
+
+        sniper=random(50,85);
+
+        camera=random(75,115);
+
+        button=random(38,57);
+
+        dpi=iphone
+            ?"Sin DPI en iPhone"
+            :random(390,410);
+
+    }
+
+
+    /* MEDIA */
+
+    if(level==="media"){
+
+        general=random(120,165);
+
+        red=Math.max(
+            1,
+            general-random(20,30)
+        );
+
+        x2=random(120,165);
+
+        x4=random(120,165);
+
+        sniper=random(80,115);
+
+        camera=random(120,165);
+
+        button=random(38,57);
+
+        dpi=iphone
+            ?"Sin DPI en iPhone"
+            :random(360,420);
+
+    }
+
+
+    /* ALTA */
+
+    if(level==="alta"){
+
+        general=random(170,197);
+
+        red=Math.max(
+            1,
+            general-30
+        );
+
+        x2=general;
+
+        x4=general;
+
+        sniper=random(110,150);
+
+        camera=random(170,197);
+
+        button=random(65,83);
+
+        dpi=iphone
+            ?"Sin DPI en iPhone"
+            :random(420,620);
+
+    }
+
+
+    currentConfig={
+        phone,
+        brand:getBrand(phone),
+        level,
+        general,
+        red,
+        x2,
+        x4,
+        sniper,
+        camera,
+        button,
+        dpi
+    };
+
+
+    showConfiguration();
+
+}
+
+
+/* =====================================================
+   RECOMENDACIONES
+===================================================== */
+
+function getMods(phone,level){
+
+    const brand=getBrand(phone);
+
+    let mods=[];
+
+
+    mods.push(
+        "Cierra aplicaciones innecesarias antes de jugar."
+    );
+
+    mods.push(
+        "Mantén suficiente espacio libre de almacenamiento."
+    );
+
+    mods.push(
+        "Evita jugar mientras el teléfono esté demasiado caliente."
+    );
+
+    mods.push(
+        "Mantén actualizado el sistema y el juego."
+    );
+
+
+    if(brand==="iPhone"){
+
+        mods.push(
+            "No uses DPI: iPhone no utiliza el ajuste DPI de Android."
+        );
+
+        mods.push(
+            "Usa una tasa de refresco alta si tu modelo la soporta."
+        );
+
+    }else{
+
+        if(level==="baja"){
+
+            mods.push(
+                "DPI recomendado: 390–410."
+            );
+
+        }
+
+        if(level==="media"){
+
+            mods.push(
+                "DPI recomendado: 360–420."
+            );
+
+        }
+
+        if(level==="alta"){
+
+            mods.push(
+                "DPI recomendado: 420–620."
+            );
+
+        }
+
+        mods.push(
+            "Usa la mayor tasa de refresco disponible."
+        );
+
+        mods.push(
+            "No cambies muchas configuraciones al mismo tiempo."
+        );
+
+    }
+
+
+    return mods;
+
+}
+
+
+/* =====================================================
+   MOSTRAR RESULTADO
+===================================================== */
+
+function showConfiguration(){
+
+    const c=currentConfig;
+
+    const mods=getMods(
+        c.phone,
+        c.level
+    );
+
+
+    let html="";
+
+
+    html+=`
+        <span class="badge">
+            SENSI ${c.level.toUpperCase()}
+        </span>
+
+        <h2>
+            🎯 ${c.phone}
+        </h2>
+
+        <p class="small">
+            Marca detectada: ${c.brand}
+        </p>
+
+        <div class="results">
+
+            <div class="result">
+                <span>General</span>
+                <strong>${c.general}</strong>
+            </div>
+
+            <div class="result">
+                <span>Punto rojo</span>
+                <strong>${c.red}</strong>
+            </div>
+
+            <div class="result">
+                <span>Mira 2X</span>
+                <strong>${c.x2}</strong>
+            </div>
+
+            <div class="result">
+                <span>Mira 4X</span>
+                <strong>${c.x4}</strong>
+            </div>
+
+            <div class="result">
+                <span>Francotirador</span>
+                <strong>${c.sniper}</strong>
+            </div>
+
+            <div class="result">
+                <span>Cámara</span>
+                <strong>${c.camera}</strong>
+            </div>
+
+            <div class="result">
+                <span>Botón</span>
+                <strong>${c.button}%</strong>
+            </div>
+
+            <div class="result">
+                <span>DPI</span>
+                <strong>${c.dpi}</strong>
+            </div>
+
+        </div>
+
+        <br>
+
+        <button onclick="copySensi()">
+            📋 COPIAR SENSIBILIDAD
+        </button>
+
+        <h3>
+            🛠️ Modificaciones recomendadas
+        </h3>
+    `;
+
+
+    mods.forEach(function(mod){
+
+        html+=`
+            <div class="mod">
+                ✓ ${mod}
+            </div>
+        `;
+
+    });
+
+
+    html+=`
+        <p class="small">
+            Las recomendaciones son configuraciones orientativas
+            y no modifican archivos del juego.
+        </p>
+    `;
+
+
+    document
+        .getElementById("configuration")
+        .innerHTML=html;
+
+}
+
+
+/* =====================================================
+   COPIAR
+===================================================== */
+
+function copySensi(){
+
+    if(!currentConfig)
+        return;
+
+
+    const c=currentConfig;
+
 
     const text=
-    document.getElementById("sea
+`EXOTIC LINOX V3
+
+Teléfono: ${c.phone}
+Marca: ${c.brand}
+Sensi: ${c.level}
+
+General: ${c.general}
+Punto rojo: ${c.red}
+Mira 2X: ${c.x2}
+Mira 4X: ${c.x4}
+Francotirador: ${c.sniper}
+Cámara: ${c.camera}
+Botón: ${c.button}%
+DPI: ${c.dpi}`;
+
+
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
+
+        navigator.clipboard
+            .writeText(text)
+            .then(function(){
+
+                alert(
+                    "✅ Sensibilidad copiada."
+                );
+
+            });
+
+    }else{
+
+        prompt(
+            "Copia la configuración:",
+            text
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CHAT IA LOCAL
+===================================================== */
+
+function addMessage(text,user=false){
+
+    const div=document.createElement("div");
+
+    div.className=
+        user
+        ?"msg user"
+        :"msg";
+
+    div.textContent=text;
+
+
+    const chat=
+        document.getElementById("chat");
+
+
+    chat.appendChild(div);
+
+    chat.scrollTop=
+        chat.scrollHeight;
+
+}
+
+
+/* =====================================================
+   PROCESAR COMANDOS DE LA IA
+===================================================== */
+
+function askAI(){
+
+    const input=
+        document.getElementById("question");
+
+    const text=
+        input.value.trim();
+
+
+    if(!text)
+        return;
+
+
+    addMessage(
+        text,
+        true
+    );
+
+
+    input.value="";
+
+
+    const lower=
+        text.toLowerCase();
+
+
+    let level=null;
+
+
+    if(lower.includes("baja"))
+        level="baja";
+
+    else if(lower.includes("media"))
+        level="media";
+
+    else if(lower.includes("alta"))
+        level="alta";
+
+
+    let found=null;
+
+
+    for(
+        const phone of phones
+    ){
+
+        if(
+            lower.includes(
+                phone.toLowerCase()
+            )
+        ){
+
+            found=phone;
+
+            break;
+        }
+
+    }
+
+
+    /*
+       Si no encuentra el modelo exacto,
+       intenta detectar la marca.
+    */
+
+    if(!found){
+
+        const brands=[
+            "samsung",
+            "redmi",
+            "poco",
+            "xiaomi",
+            "iphone",
+            "motorola",
+            "tecno",
+            "infinix"
+        ];
+
+
+        for(
+            const brand of brands
+        ){
+
+            if(
+                lower.includes(brand)
+            ){
+
+                found=brand;
+
+                break;
+            }
+
+        }
+
+    }
+
+
+    if(found){
+
+        /*
+           Si encontramos un modelo real
+        */
+
+        const exact=phones.find(
+            p =>
+            p.toLowerCase()===
+            found.toLowerCase()
+        );
+
+
+        if(exact){
+
+            
