@@ -9,152 +9,171 @@
 *{box-sizing:border-box}
 
 body{
-    margin:0;
-    background:#050708;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+margin:0;
+background:#050708;
+color:#fff;
+font-family:Arial,Helvetica,sans-serif
 }
 
 header{
-    padding:20px;
-    border-bottom:1px solid #20272b;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    background:#050708;
-    z-index:10;
+padding:20px;
+border-bottom:1px solid #20272b;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+background:#050708;
+z-index:10
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
+font-size:24px;
+font-weight:bold
 }
 
 .logo span{
-    color:#00f58a;
+color:#00f58a
 }
 
 .container{
-    width:94%;
-    max-width:950px;
-    margin:25px auto;
+width:94%;
+max-width:950px;
+margin:25px auto
 }
 
 .card{
-    background:#0c1114;
-    border:1px solid #202a2f;
-    border-radius:18px;
-    padding:20px;
-    margin-bottom:18px;
+background:#0c1114;
+border:1px solid #202a2f;
+border-radius:18px;
+padding:20px;
+margin-bottom:18px
 }
 
 input,button{
-    width:100%;
-    padding:14px;
-    margin-top:9px;
-    border-radius:12px;
-    font-size:16px;
+width:100%;
+padding:14px;
+margin-top:9px;
+border-radius:12px;
+font-size:16px
 }
 
 input{
-    background:#070a0c;
-    border:1px solid #303a40;
-    color:white;
-    outline:none;
+background:#070a0c;
+border:1px solid #303a40;
+color:white;
+outline:none
 }
 
 button{
-    background:#00ed88;
-    color:#00150c;
-    border:0;
-    font-weight:bold;
-    cursor:pointer;
+background:#00ed88;
+color:#00150c;
+border:0;
+font-weight:bold;
+cursor:pointer
+}
+
+button:hover{
+filter:brightness(1.08)
 }
 
 button.secondary{
-    background:#11191d;
-    color:white;
-    border:1px solid #303a40;
+background:#11191d;
+color:white;
+border:1px solid #303a40
+}
+
+.generate{
+font-size:18px;
+padding:17px;
+margin-top:15px
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px
 }
 
 .results{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-    gap:10px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:10px
 }
 
 .result{
-    background:#080d0f;
-    border:1px solid #202b30;
-    border-radius:12px;
-    padding:14px;
+background:#080d0f;
+border:1px solid #202b30;
+border-radius:12px;
+padding:14px
 }
 
 .result span{
-    display:block;
-    color:#8e9ba0;
-    font-size:13px;
+display:block;
+color:#8e9ba0;
+font-size:13px
 }
 
 .result strong{
-    display:block;
-    color:#00f58a;
-    font-size:24px;
-    margin-top:5px;
+display:block;
+color:#00f58a;
+font-size:24px;
+margin-top:5px
 }
 
 .badge{
-    display:inline-block;
-    padding:7px 12px;
-    background:#07321f;
-    color:#00ff91;
-    border-radius:20px;
-    font-weight:bold;
+display:inline-block;
+padding:7px 12px;
+background:#07321f;
+color:#00ff91;
+border-radius:20px;
+font-weight:bold
 }
 
 .small{
-    color:#89969b;
-    font-size:13px;
+color:#89969b;
+font-size:13px
 }
 
 .mod{
-    padding:9px 0;
-    border-bottom:1px solid #182125;
+padding:10px 0;
+border-bottom:1px solid #182125
 }
 
 .chat{
-    height:280px;
-    overflow:auto;
-    background:#050708;
-    border:1px solid #202a2f;
-    border-radius:12px;
-    padding:12px;
+height:280px;
+overflow:auto;
+background:#050708;
+border:1px solid #202a2f;
+border-radius:12px;
+padding:12px
 }
 
 .msg{
-    background:#11191d;
-    padding:11px;
-    border-radius:10px;
-    margin-bottom:8px;
-    white-space:pre-wrap;
+background:#11191d;
+padding:11px;
+border-radius:10px;
+margin-bottom:8px;
+white-space:pre-wrap
 }
 
 .msg.user{
-    background:#063a25;
+background:#063a25
+}
+
+.status{
+margin-top:10px;
+padding:10px;
+border-radius:10px;
+background:#081a13;
+color:#00f58a;
+display:none
 }
 
 @media(max-width:600px){
-    .grid{
-        grid-template-columns:1fr;
-    }
+.grid{
+grid-template-columns:1fr
+}
 }
 </style>
 </head>
@@ -162,19 +181,24 @@ button.secondary{
 <body>
 
 <header>
-    <div class="logo">
-        EXOTIC <span>LINOX</span> V3
-    </div>
 
-    <div class="small">
-        SENSI + AI
-    </div>
+<div class="logo">
+EXOTIC <span>LINOX</span> V3
+</div>
+
+<div class="small">
+SENSI + AI
+</div>
+
 </header>
 
 
 <div class="container">
 
-<!-- BUSCADOR -->
+
+<!-- =================================================
+BUSCADOR
+================================================= -->
 
 <div class="card">
 
@@ -190,13 +214,17 @@ autocomplete="off"
 <datalist id="phones"></datalist>
 
 <p class="small">
-Ejemplo: Redmi Note 11, Samsung A55, iPhone 13, POCO X6 Pro, Tecno Spark 20...
+Busca por marca o modelo.
+Ejemplo: Redmi Note 11, Samsung A55, iPhone 13,
+POCO X6 Pro, Tecno Spark 20...
 </p>
 
 </div>
 
 
-<!-- NIVEL -->
+<!-- =================================================
+SELECCIÓN DE SENSI
+================================================= -->
 
 <div class="card">
 
@@ -204,62 +232,102 @@ Ejemplo: Redmi Note 11, Samsung A55, iPhone 13, POCO X6 Pro, Tecno Spark 20...
 
 <div class="grid">
 
-<button onclick="generate('baja')">
+<button onclick="selectLevel('baja')">
 SENSI BAJA
 </button>
 
-<button onclick="generate('media')">
+<button onclick="selectLevel('media')">
 SENSI MEDIA
 </button>
 
-<button onclick="generate('alta')">
+<button onclick="selectLevel('alta')">
 SENSI ALTA
 </button>
 
 </div>
 
-<p class="small">
-Baja: 75–115 · Media: 120–165 · Alta: 170–197
-</p>
+<div id="selectedLevel" class="status"></div>
 
 </div>
 
 
-<!-- RESULTADO -->
+<!-- =================================================
+BOTÓN GENERAR
+================================================= -->
 
-<div class="card" id="configuration">
+<div class="card">
+
+<h2>⚡ Generador</h2>
+
+<button
+class="generate"
+onclick="generateSensi()"
+>
+⚡ GENERAR SENSI
+</button>
+
+<div
+id="sensiStatus"
+class="status"
+>
+Selecciona un teléfono y una sensibilidad.
+</div>
+
+</div>
+
+
+<!-- =================================================
+RESULTADO
+================================================= -->
+
+<div
+class="card"
+id="configuration"
+>
 
 <h2>⚙️ Configuración</h2>
 
 <p class="small">
-Busca tu teléfono y selecciona Baja, Media o Alta.
+Escribe tu teléfono, selecciona Baja, Media o Alta
+y pulsa GENERAR SENSI.
 </p>
 
 </div>
 
 
-<!-- IA -->
+<!-- =================================================
+IA
+================================================= -->
 
 <div class="card">
 
 <h2>🤖 EXOTIC LINOX AI</h2>
 
-<div class="chat" id="chat">
+<div
+class="chat"
+id="chat"
+>
 
 <div class="msg">
-🤖 Hola. Soy la IA de EXOTIC LINOX.
+
+🤖 Hola. Soy la IA local de EXOTIC LINOX.
 
 Puedo ayudarte a generar una configuración.
 
 Ejemplos:
 
-• sensi alta Redmi Note 11
-• sensi baja Samsung A55
-• sensi media iPhone 13
-• configuración POCO X6 Pro
+sensi alta Redmi Note 11
+
+sensi media Samsung A55
+
+sensi baja iPhone 13
+
+configuración POCO X6 Pro
+
 </div>
 
 </div>
+
 
 <input
 id="question"
@@ -273,16 +341,17 @@ ENVIAR
 
 </div>
 
+
 </div>
 
 
 <script>
 
 /* =====================================================
-   CATÁLOGO
+CATÁLOGO
 ===================================================== */
 
-const phones = [
+const phones=[
 
 /* SAMSUNG */
 
@@ -618,428 +687,531 @@ const phones = [
 
 
 /* =====================================================
-   CREAR BUSCADOR
+CREAR OPCIONES
 ===================================================== */
 
-const datalist=document.getElementById("phones");
+const datalist=
+document.getElementById("phones");
 
 phones.forEach(function(phone){
 
-    const option=document.createElement("option");
+const option=
+document.createElement("option");
 
-    option.value=phone;
+option.value=phone;
 
-    datalist.appendChild(option);
+datalist.appendChild(option);
 
 });
 
 
 /* =====================================================
-   DETECTAR MARCA
+VARIABLES
+===================================================== */
+
+let selectedLevel=null;
+
+let currentConfig=null;
+
+
+/* =====================================================
+DETECTAR MARCA
 ===================================================== */
 
 function getBrand(phone){
 
-    const p=phone.toLowerCase();
+const p=phone.toLowerCase();
 
-    if(p.includes("iphone"))
-        return "iPhone";
+if(p.includes("iphone"))
+return "iPhone";
 
-    if(p.includes("samsung") || p.includes("galaxy"))
-        return "Samsung";
+if(
+p.includes("samsung") ||
+p.includes("galaxy")
+)
+return "Samsung";
 
-    if(p.includes("redmi"))
-        return "Redmi";
+if(p.includes("redmi"))
+return "Redmi";
 
-    if(p.includes("poco"))
-        return "POCO";
+if(p.includes("poco"))
+return "POCO";
 
-    if(p.includes("xiaomi") || p.startsWith("mi "))
-        return "Xiaomi";
+if(
+p.includes("xiaomi") ||
+p.startsWith("mi ")
+)
+return "Xiaomi";
 
-    if(
-        p.includes("motorola") ||
-        p.includes("moto ") ||
-        p.includes("razr") ||
-        p.includes("edge")
-    )
-        return "Motorola";
+if(
+p.includes("motorola") ||
+p.includes("moto ") ||
+p.includes("razr") ||
+p.includes("edge")
+)
+return "Motorola";
 
-    if(
-        p.includes("tecno") ||
-        p.includes("spark") ||
-        p.includes("pova") ||
-        p.includes("camon")
-    )
-        return "TECNO";
+if(
+p.includes("tecno") ||
+p.includes("spark") ||
+p.includes("pova") ||
+p.includes("camon")
+)
+return "TECNO";
 
-    if(
-        p.includes("infinix") ||
-        p.includes("hot ") ||
-        p.includes("zero ") ||
-        p.includes("gt ")
-    )
-        return "Infinix";
+if(
+p.includes("infinix") ||
+p.includes("hot ") ||
+p.includes("zero ") ||
+p.includes("gt ")
+)
+return "Infinix";
 
-    return "Android";
+return "Android";
+
 }
 
 
 /* =====================================================
-   NÚMERO ALEATORIO
+RANDOM
 ===================================================== */
 
 function random(min,max){
 
-    return Math.floor(
-        Math.random()*(max-min+1)
-    )+min;
+return Math.floor(
+Math.random()*(max-min+1)
+)+min;
 
 }
 
 
 /* =====================================================
-   GENERAR SENSIBILIDAD
+SELECCIONAR NIVEL
 ===================================================== */
 
-let currentConfig=null;
+function selectLevel(level){
+
+selectedLevel=level;
+
+const box=
+document.getElementById("selectedLevel");
+
+box.style.display="block";
+
+box.innerHTML=
+"✅ SENSI "+
+level.toUpperCase()+
+" seleccionada.";
+
+}
+
+
+/* =====================================================
+GENERAR SENSI
+===================================================== */
+
+function generateSensi(){
+
+const phone=
+document
+.getElementById("phone")
+.value
+.trim();
+
+
+if(!phone){
+
+alert(
+"⚠️ Primero escribe o selecciona tu teléfono."
+);
+
+return;
+
+}
+
+
+if(!selectedLevel){
+
+alert(
+"⚠️ Primero selecciona SENSI BAJA, MEDIA o ALTA."
+);
+
+return;
+
+}
+
+
+generate(selectedLevel);
+
+}
+
+
+/* =====================================================
+GENERADOR PRINCIPAL
+===================================================== */
 
 function generate(level){
 
-    const phone=document
-        .getElementById("phone")
-        .value
-        .trim();
-
-    if(!phone){
-
-        alert("Primero escribe el modelo de tu teléfono.");
-
-        return;
-    }
-
-    const iphone=getBrand(phone)==="iPhone";
-
-    let general;
-    let red;
-    let x2;
-    let x4;
-    let sniper;
-    let camera;
-    let button;
-    let dpi;
+const phone=
+document
+.getElementById("phone")
+.value
+.trim();
 
 
-    /* BAJA */
-
-    if(level==="baja"){
-
-        general=random(75,115);
-
-        red=Math.max(
-            1,
-            general-random(15,30)
-        );
-
-        x2=random(75,115);
-
-        x4=random(75,115);
-
-        sniper=random(50,85);
-
-        camera=random(75,115);
-
-        button=random(38,57);
-
-        dpi=iphone
-            ?"Sin DPI en iPhone"
-            :random(390,410);
-
-    }
+const iphone=
+getBrand(phone)==="iPhone";
 
 
-    /* MEDIA */
-
-    if(level==="media"){
-
-        general=random(120,165);
-
-        red=Math.max(
-            1,
-            general-random(20,30)
-        );
-
-        x2=random(120,165);
-
-        x4=random(120,165);
-
-        sniper=random(80,115);
-
-        camera=random(120,165);
-
-        button=random(38,57);
-
-        dpi=iphone
-            ?"Sin DPI en iPhone"
-            :random(360,420);
-
-    }
+let general;
+let red;
+let x2;
+let x4;
+let sniper;
+let camera;
+let button;
+let dpi;
 
 
-    /* ALTA */
+/* BAJA */
 
-    if(level==="alta"){
+if(level==="baja"){
 
-        general=random(170,197);
+general=random(75,115);
 
-        red=Math.max(
-            1,
-            general-30
-        );
+red=Math.max(
+1,
+general-random(15,30)
+);
 
-        x2=general;
+x2=random(75,115);
 
-        x4=general;
+x4=random(75,115);
 
-        sniper=random(110,150);
+sniper=random(50,85);
 
-        camera=random(170,197);
+camera=random(75,115);
 
-        button=random(65,83);
+button=random(38,57);
 
-        dpi=iphone
-            ?"Sin DPI en iPhone"
-            :random(420,620);
+dpi=iphone
+?"Sin DPI en iPhone"
+:random(390,410);
 
-    }
-
-
-    currentConfig={
-        phone,
-        brand:getBrand(phone),
-        level,
-        general,
-        red,
-        x2,
-        x4,
-        sniper,
-        camera,
-        button,
-        dpi
-    };
+}
 
 
-    showConfiguration();
+/* MEDIA */
+
+if(level==="media"){
+
+general=random(120,165);
+
+red=Math.max(
+1,
+general-random(20,30)
+);
+
+x2=random(120,165);
+
+x4=random(120,165);
+
+sniper=random(80,115);
+
+camera=random(120,165);
+
+button=random(38,57);
+
+dpi=iphone
+?"Sin DPI en iPhone"
+:random(360,420);
+
+}
+
+
+/* ALTA */
+
+if(level==="alta"){
+
+general=random(170,197);
+
+red=Math.max(
+1,
+general-30
+);
+
+x2=general;
+
+x4=general;
+
+sniper=random(110,150);
+
+camera=random(170,197);
+
+button=random(65,83);
+
+dpi=iphone
+?"Sin DPI en iPhone"
+:random(420,620);
+
+}
+
+
+currentConfig={
+phone:phone,
+brand:getBrand(phone),
+level:level,
+general:general,
+red:red,
+x2:x2,
+x4:x4,
+sniper:sniper,
+camera:camera,
+button:button,
+dpi:dpi
+};
+
+
+showConfiguration();
+
+
+const status=
+document.getElementById(
+"sensiStatus"
+);
+
+status.style.display="block";
+
+status.innerHTML=
+"✅ Sensibilidad generada para "+
+phone+
+" — SENSI "+
+level.toUpperCase();
+
+
+document
+.getElementById("configuration")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 
 /* =====================================================
-   RECOMENDACIONES
+MODIFICACIONES
 ===================================================== */
 
 function getMods(phone,level){
 
-    const brand=getBrand(phone);
+const brand=
+getBrand(phone);
 
-    let mods=[];
-
-
-    mods.push(
-        "Cierra aplicaciones innecesarias antes de jugar."
-    );
-
-    mods.push(
-        "Mantén suficiente espacio libre de almacenamiento."
-    );
-
-    mods.push(
-        "Evita jugar mientras el teléfono esté demasiado caliente."
-    );
-
-    mods.push(
-        "Mantén actualizado el sistema y el juego."
-    );
+let mods=[];
 
 
-    if(brand==="iPhone"){
+mods.push(
+"Cierra aplicaciones que no estés utilizando."
+);
 
-        mods.push(
-            "No uses DPI: iPhone no utiliza el ajuste DPI de Android."
-        );
+mods.push(
+"Mantén suficiente espacio libre de almacenamiento."
+);
 
-        mods.push(
-            "Usa una tasa de refresco alta si tu modelo la soporta."
-        );
+mods.push(
+"Evita jugar mientras el teléfono esté excesivamente caliente."
+);
 
-    }else{
-
-        if(level==="baja"){
-
-            mods.push(
-                "DPI recomendado: 390–410."
-            );
-
-        }
-
-        if(level==="media"){
-
-            mods.push(
-                "DPI recomendado: 360–420."
-            );
-
-        }
-
-        if(level==="alta"){
-
-            mods.push(
-                "DPI recomendado: 420–620."
-            );
-
-        }
-
-        mods.push(
-            "Usa la mayor tasa de refresco disponible."
-        );
-
-        mods.push(
-            "No cambies muchas configuraciones al mismo tiempo."
-        );
-
-    }
+mods.push(
+"Mantén actualizado el sistema y el juego."
+);
 
 
-    return mods;
+if(brand==="iPhone"){
+
+mods.push(
+"iPhone no utiliza el ajuste DPI de Android."
+);
+
+mods.push(
+"Usa una tasa de refresco alta si tu modelo la soporta."
+);
+
+}else{
+
+if(level==="baja"){
+
+mods.push(
+"DPI recomendado: 390–410."
+);
+
+}
+
+if(level==="media"){
+
+mods.push(
+"DPI recomendado: 360–420."
+);
+
+}
+
+if(level==="alta"){
+
+mods.push(
+"DPI recomendado: 420–620."
+);
+
+}
+
+mods.push(
+"Usa la mayor tasa de refresco disponible."
+);
+
+mods.push(
+"No cambies muchas configuraciones al mismo tiempo."
+);
+
+}
+
+
+return mods;
 
 }
 
 
 /* =====================================================
-   MOSTRAR RESULTADO
+MOSTRAR CONFIGURACIÓN
 ===================================================== */
 
 function showConfiguration(){
 
-    const c=currentConfig;
+const c=currentConfig;
 
-    const mods=getMods(
-        c.phone,
-        c.level
-    );
-
-
-    let html="";
+const mods=
+getMods(
+c.phone,
+c.level
+);
 
 
-    html+=`
-        <span class="badge">
-            SENSI ${c.level.toUpperCase()}
-        </span>
-
-        <h2>
-            🎯 ${c.phone}
-        </h2>
-
-        <p class="small">
-            Marca detectada: ${c.brand}
-        </p>
-
-        <div class="results">
-
-            <div class="result">
-                <span>General</span>
-                <strong>${c.general}</strong>
-            </div>
-
-            <div class="result">
-                <span>Punto rojo</span>
-                <strong>${c.red}</strong>
-            </div>
-
-            <div class="result">
-                <span>Mira 2X</span>
-                <strong>${c.x2}</strong>
-            </div>
-
-            <div class="result">
-                <span>Mira 4X</span>
-                <strong>${c.x4}</strong>
-            </div>
-
-            <div class="result">
-                <span>Francotirador</span>
-                <strong>${c.sniper}</strong>
-            </div>
-
-            <div class="result">
-                <span>Cámara</span>
-                <strong>${c.camera}</strong>
-            </div>
-
-            <div class="result">
-                <span>Botón</span>
-                <strong>${c.button}%</strong>
-            </div>
-
-            <div class="result">
-                <span>DPI</span>
-                <strong>${c.dpi}</strong>
-            </div>
-
-        </div>
-
-        <br>
-
-        <button onclick="copySensi()">
-            📋 COPIAR SENSIBILIDAD
-        </button>
-
-        <h3>
-            🛠️ Modificaciones recomendadas
-        </h3>
-    `;
+let html="";
 
 
-    mods.forEach(function(mod){
+html+=`
 
-        html+=`
-            <div class="mod">
-                ✓ ${mod}
-            </div>
-        `;
+<span class="badge">
+SENSI ${c.level.toUpperCase()}
+</span>
 
-    });
+<h2>
+🎯 ${c.phone}
+</h2>
+
+<p class="small">
+Marca: ${c.brand}
+</p>
+
+<div class="results">
+
+<div class="result">
+<span>General</span>
+<strong>${c.general}</strong>
+</div>
+
+<div class="result">
+<span>Punto rojo</span>
+<strong>${c.red}</strong>
+</div>
+
+<div class="result">
+<span>Mira 2X</span>
+<strong>${c.x2}</strong>
+</div>
+
+<div class="result">
+<span>Mira 4X</span>
+<strong>${c.x4}</strong>
+</div>
+
+<div class="result">
+<span>Francotirador</span>
+<strong>${c.sniper}</strong>
+</div>
+
+<div class="result">
+<span>Cámara 360°</span>
+<strong>${c.camera}</strong>
+</div>
+
+<div class="result">
+<span>Botón</span>
+<strong>${c.button}%</strong>
+</div>
+
+<div class="result">
+<span>DPI</span>
+<strong>${c.dpi}</strong>
+</div>
+
+</div>
+
+<br>
+
+<button onclick="copySensi()">
+📋 COPIAR SENSIBILIDAD
+</button>
+
+<h3>
+🛠️ Modificaciones recomendadas
+</h3>
+
+`;
 
 
-    html+=`
-        <p class="small">
-            Las recomendaciones son configuraciones orientativas
-            y no modifican archivos del juego.
-        </p>
-    `;
+mods.forEach(function(mod){
+
+html+=`
+
+<div class="mod">
+✓ ${mod}
+</div>
+
+`;
+
+});
 
 
-    document
-        .getElementById("configuration")
-        .innerHTML=html;
+html+=`
+
+<p class="small">
+Estas configuraciones son recomendaciones
+orientativas y no modifican archivos del juego.
+</p>
+
+`;
+
+
+document
+.getElementById("configuration")
+.innerHTML=html;
 
 }
 
 
 /* =====================================================
-   COPIAR
+COPIAR SENSI
 ===================================================== */
 
 function copySensi(){
 
-    if(!currentConfig)
-        return;
+if(!currentConfig)
+return;
 
 
-    const c=currentConfig;
+const c=currentConfig;
 
 
-    const text=
+const text=
 `EXOTIC LINOX V3
 
 Teléfono: ${c.phone}
@@ -1051,180 +1223,204 @@ Punto rojo: ${c.red}
 Mira 2X: ${c.x2}
 Mira 4X: ${c.x4}
 Francotirador: ${c.sniper}
-Cámara: ${c.camera}
+Cámara 360°: ${c.camera}
 Botón: ${c.button}%
 DPI: ${c.dpi}`;
 
 
-    if(
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-    ){
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
 
-        navigator.clipboard
-            .writeText(text)
-            .then(function(){
+navigator.clipboard
+.writeText(text)
+.then(function(){
 
-                alert(
-                    "✅ Sensibilidad copiada."
-                );
+alert(
+"✅ Sensibilidad copiada correctamente."
+);
 
-            });
+});
 
-    }else{
+}else{
 
-        prompt(
-            "Copia la configuración:",
-            text
-        );
+prompt(
+"Copia la configuración:",
+text
+);
 
-    }
+}
 
 }
 
 
 /* =====================================================
-   CHAT IA LOCAL
+CHAT
 ===================================================== */
 
 function addMessage(text,user=false){
 
-    const div=document.createElement("div");
+const div=
+document.createElement("div");
 
-    div.className=
-        user
-        ?"msg user"
-        :"msg";
+div.className=
+user
+?"msg user"
+:"msg";
 
-    div.textContent=text;
-
-
-    const chat=
-        document.getElementById("chat");
+div.textContent=text;
 
 
-    chat.appendChild(div);
+const chat=
+document.getElementById("chat");
 
-    chat.scrollTop=
-        chat.scrollHeight;
+chat.appendChild(div);
+
+chat.scrollTop=
+chat.scrollHeight;
 
 }
 
 
 /* =====================================================
-   PROCESAR COMANDOS DE LA IA
+IA
 ===================================================== */
 
 function askAI(){
 
-    const input=
-        document.getElementById("question");
+const input=
+document.getElementById("question");
 
-    const text=
-        input.value.trim();
-
-
-    if(!text)
-        return;
+const text=
+input.value.trim();
 
 
-    addMessage(
-        text,
-        true
-    );
+if(!text)
+return;
 
 
-    input.value="";
+addMessage(
+text,
+true
+);
 
 
-    const lower=
-        text.toLowerCase();
+input.value="";
 
 
-    let level=null;
+const lower=
+text.toLowerCase();
 
 
-    if(lower.includes("baja"))
-        level="baja";
-
-    else if(lower.includes("media"))
-        level="media";
-
-    else if(lower.includes("alta"))
-        level="alta";
+let level=null;
 
 
-    let found=null;
+if(lower.includes("baja"))
+level="baja";
+
+else if(lower.includes("media"))
+level="media";
+
+else if(lower.includes("alta"))
+level="alta";
 
 
-    for(
-        const phone of phones
-    ){
-
-        if(
-            lower.includes(
-                phone.toLowerCase()
-            )
-        ){
-
-            found=phone;
-
-            break;
-        }
-
-    }
+let found=null;
 
 
-    /*
-       Si no encuentra el modelo exacto,
-       intenta detectar la marca.
-    */
+for(
+const phone of phones
+){
 
-    if(!found){
+if(
+lower.includes(
+phone.toLowerCase()
+)
+){
 
-        const brands=[
-            "samsung",
-            "redmi",
-            "poco",
-            "xiaomi",
-            "iphone",
-            "motorola",
-            "tecno",
-            "infinix"
-        ];
+found=phone;
 
+break;
 
-        for(
-            const brand of brands
-        ){
+}
 
-            if(
-                lower.includes(brand)
-            ){
-
-                found=brand;
-
-                break;
-            }
-
-        }
-
-    }
+}
 
 
-    if(found){
+if(found){
 
-        /*
-           Si encontramos un modelo real
-        */
+document
+.getElementById("phone")
+.value=found;
 
-        const exact=phones.find(
-            p =>
-            p.toLowerCase()===
-            found.toLowerCase()
-        );
+}
 
 
-        if(exact){
+const phone=
+document
+.getElementById("phone")
+.value
+.trim();
 
-            
+
+if(level && phone){
+
+selectedLevel=level;
+
+generate(level);
+
+addMessage(
+"🤖 Listo. Generé la SENSI "+
+level.toUpperCase()+
+" para "+phone+"."
+);
+
+return;
+
+}
+
+
+if(!level){
+
+addMessage(
+
+`🤖 Puedo generar:
+
+• Sensi baja
+• Sensi media
+• Sensi alta
+
+Ejemplos:
+
+"sensi alta Redmi Note 11"
+
+"sensi media Samsung A55"
+
+"sensi baja iPhone 13"
+
+"sensi alta POCO X6 Pro"`
+
+);
+
+return;
+
+}
+
+
+if(!phone){
+
+addMessage(
+"🤖 Primero dime el modelo del teléfono."
+);
+
+return;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
